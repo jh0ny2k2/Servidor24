@@ -38,10 +38,92 @@
 
     echo '<div class="row">';
     
+    echo '<h3>novela</h3>';
     foreach($libros as $valor) {
-        echo '<div class="col">';   
 
-        echo $valor["categoria"];
+        if ($valor["categoria"] == "novela"){
+            echo '
+                    <div class="card mb-4" style="width: 18rem;">
+                        <img src="'.$valor["foto"].'" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h6 class="card-title">'.$valor["titulo"].'</h6>
+                            <p class="card-text">'.$valor["precio"].'€</p>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#comprar">
+                                Comprar
+                            </button>
+
+                        </div>
+                    </div>
+            ';
+
+        }
+    }
+
+    echo '<h3>ciencia</h3>';
+    foreach($libros as $valor) {
+          
+        if ($valor["categoria"] == "ciencia"){
+            echo '
+                    <div class="card mb-4" style="width: 18rem;">
+                        <img src="'.$valor["foto"].'" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h6 class="card-title">'.$valor["titulo"].'</h6>
+                            <p class="card-text">'.$valor["precio"].'€</p>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#comprar">
+                                Comprar
+                            </button>
+
+                        </div>
+                    </div>
+            ';
+        }
+    }
+
+    echo '<h3>scifi</h3>';
+    foreach($libros as $valor) {
+          
+        if ($valor["categoria"] == "scifi"){
+            echo '
+                    <div class="card mb-4" style="width: 18rem;">
+                        <img src="'.$valor["foto"].'" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h6 class="card-title">'.$valor["titulo"].'</h6>
+                            <p class="card-text">'.$valor["precio"].'€</p>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#comprar">
+                                Comprar
+                            </button>
+
+                        </div>
+                    </div>
+            ';
+        }
+    }
+
+    echo '<h3>deporte</h3>';
+    foreach($libros as $valor) {
+          
+        if ($valor["categoria"] == "deporte"){
+            echo '
+                    <div class="card mb-4" style="width: 18rem;">
+                        <img src="'.$valor["foto"].'" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h6 class="card-title">'.$valor["titulo"].'</h6>
+                            <p class="card-text">'.$valor["precio"].'€</p>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#comprar">
+                                Comprar
+                            </button>
+
+                        </div>
+                    </div>
+            ';
+        }
+    }
+
+    echo '<h3>cocina</h3>';
+    foreach($libros as $valor) {
+          
+        if ($valor["categoria"] == "cocina"){
+
         echo '
                 <div class="card mb-4" style="width: 18rem;">
                     <img src="'.$valor["foto"].'" class="card-img-top" alt="...">
@@ -55,171 +137,32 @@
                     </div>
                 </div>
         ';
-
-        echo '</div>';
+        }
     }
+    
+    echo '<h3>historia</h3>';
+    foreach($libros as $valor) {
+          
+        if ($valor["categoria"] == "historia"){
+
+        echo '
+                <div class="card mb-4" style="width: 18rem;">
+                    <img src="'.$valor["foto"].'" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h6 class="card-title">'.$valor["titulo"].'</h6>
+                        <p class="card-text">'.$valor["precio"].'€</p>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#comprar">
+                            Comprar
+                        </button>
+
+                    </div>
+                </div>
+        ';
+        }
+    }
+
 
     echo '</div>';
-
-
-
-
-    
-    /*
-
-
-    //CREAMOS UN DIV PARA QUE TODO ESTE ORGANIZADO CON ROW
-    echo '<div class="row gy-5">';
-
-    
-    
-    //CREAMOS UN FOREACH PARA RECORRER EL ARRAY 
-    foreach ($libros as $valor){
-        echo '<div class="col">';
-        
-        //MIRAMOS A VER SI SON DE LA CATEGORIA CORRECTA CON UN IF
-        if ($valor["categoria"] == "ciencia") {
-
-            //PRINTEAMOS POR PANTALLA LA CARD CON SU RESPECTIVA INFORMACION
-            echo '<br><br>  
-                <div class="card col mb-4" style="width: 18rem;">
-                    <img src=" '. $valor["foto"] .'" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <p class="card-text">' . $valor["descripcion"] . '</p>
-                        <h5 class="card-title">' . $valor["titulo"] . '</h5>
-                        <p class="card-text .text-danger">' . $valor["precio"] . '€</p>
-                    </div>
-                </div>
-            ';
-        }
-
-        echo ' </div>';
-    }
-
-    echo "Novela";
-    //CREAMOS UN FOREACH PARA RECORRER EL ARRAY 
-    foreach ($libros as $valor){
-        echo '<div class="col">';
-
-        //MIRAMOS A VER SI SON DE LA CATEGORIA CORRECTA CON UN IF
-        if ($valor["categoria"] == "novela") {
-
-            //PRINTEAMOS POR PANTALLA LA CARD CON SU RESPECTIVA INFORMACION
-            echo '
-                <div class="card col mb-4" style="width: 18rem;">
-                    <img src=" '. $valor["foto"] .'" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <p class="card-text">' . $valor["descripcion"] . '</p>
-                        <h5 class="card-title">' . $valor["titulo"] . '</h5>
-                        <p class="card-text .text-danger">' . $valor["precio"] . '€</p>
-                    </div>
-                </div>
-            ';
-        }
-        
-        echo ' </div>';
-    }
-
-    echo "scifi";
-    //CREAMOS UN FOREACH PARA RECORRER EL ARRAY 
-    foreach ($libros as $valor){
-        echo '<div class="col">';
-
-        //MIRAMOS A VER SI SON DE LA CATEGORIA CORRECTA CON UN IF
-        if ($valor["categoria"] == "scifi") {
-
-            //PRINTEAMOS POR PANTALLA LA CARD CON SU RESPECTIVA INFORMACION
-            echo '
-                <div class="card col mb-4" style="width: 18rem;">
-                    <img src=" '. $valor["foto"] .'" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <p class="card-text">' . $valor["descripcion"] . '</p>
-                        <h5 class="card-title">' . $valor["titulo"] . '</h5>
-                        <p class="card-text .text-danger">' . $valor["precio"] . '€</p>
-                    </div>
-                </div>
-            ';
-        }
-        
-        echo ' </div>';
-    }
-
-    echo "cocina";
-    //CREAMOS UN FOREACH PARA RECORRER EL ARRAY 
-    foreach ($libros as $valor){
-        echo '<div class="col">';
-
-        //MIRAMOS A VER SI SON DE LA CATEGORIA CORRECTA CON UN IF
-        if ($valor["categoria"] == "cocina") {
-
-            //PRINTEAMOS POR PANTALLA LA CARD CON SU RESPECTIVA INFORMACION
-            echo '
-                <div class="card col mb-4" style="width: 18rem;">
-                    <img src=" '. $valor["foto"] .'" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <p class="card-text">' . $valor["descripcion"] . '</p>
-                        <h5 class="card-title">' . $valor["titulo"] . '</h5>
-                        <p class="card-text .text-danger">' . $valor["precio"] . '€</p>
-                    </div>
-                </div>
-            ';
-        }
-        
-        echo ' </div>';
-    }
-
-    echo "deporte";
-    //CREAMOS UN FOREACH PARA RECORRER EL ARRAY 
-    foreach ($libros as $valor){
-        echo '<div class="col col-6">';
-
-        //MIRAMOS A VER SI SON DE LA CATEGORIA CORRECTA CON UN IF
-        if ($valor["categoria"] == "deporte") {
-
-            //PRINTEAMOS POR PANTALLA LA CARD CON SU RESPECTIVA INFORMACION
-            echo '
-                <div class="card col mb-4" style="width: 18rem;">
-                    <img src=" '. $valor["foto"] .'" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <p class="card-text">' . $valor["descripcion"] . '</p>
-                        <h5 class="card-title">' . $valor["titulo"] . '</h5>
-                        <p class="card-text .text-danger">' . $valor["precio"] . '€</p>
-                    </div>
-                </div>
-            ';
-        }
-        
-        echo ' </div>';
-    }
-
-    echo "historia <br>";
-    //CREAMOS UN FOREACH PARA RECORRER EL ARRAY 
-    foreach ($libros as $valor){
-        echo '<div class="col col">';
-
-        //MIRAMOS A VER SI SON DE LA CATEGORIA CORRECTA CON UN IF
-        if ($valor["categoria"] == "historia") {
-
-            //PRINTEAMOS POR PANTALLA LA CARD CON SU RESPECTIVA INFORMACION
-            echo '
-                <div class="card col mb-4" style="width: 18rem;">
-                    <img src=" '. $valor["foto"] .'" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <p class="card-text">' . $valor["descripcion"] . '</p>
-                        <h5 class="card-title">' . $valor["titulo"] . '</h5>
-                        <p class="card-text .text-danger">' . $valor["precio"] . '€</p>
-                    </div>
-                </div>
-            ';
-        }
-        
-        echo ' </div>';
-    }
-
-
-    echo '</div>'
-
-    */
 
 ?>
 

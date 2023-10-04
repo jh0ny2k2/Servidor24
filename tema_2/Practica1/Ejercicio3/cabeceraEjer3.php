@@ -88,40 +88,15 @@ var dokan = {"ajaxurl":"https:\/\/themes.getbootstrap.com\/wp-admin\/admin-ajax.
   gtag('config', 'UA-67613229-3');
   </script>
 
-<main class="d-flex flex-nowrap">
-  
-  <div class="d-flex flex-column flex-shrink-0 p-3 bg-success justify-content-lg-start  " style="width: 280px;">
-    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none ">
-      <svg class="bi pe-none me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
-      <span class="fs-4">Valorant</span>
-    </a>
-    <hr>
-    <ul class="nav nav-pills flex-column mb-auto">
-      <li class="nav-item">
-        <a href="#" class="nav-link active" aria-current="page">
-          <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#home"/></svg>
-          <h2 class=".text-primary">Pesonajes</h2>
-        </a>
-      </li>
-      <li>
-        <a href="#" class="nav-link link-body-emphasis">
-          <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>
-          <h2>Mapas</h2>
-        </a>
-      </li>
-      <li>
-        <a href="#" class="nav-link link-body-emphasis">
-          <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#table"/></svg>
-          <h2>Arsenal</h2>
-        </a>
-      </li>
-    </ul>
-    <hr>
-  
 
-  
-</main>
-<script src="/docs/5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <header class="d-flex justify-content-center py-3 bg-dark  rounded">
+      <ul class="nav nav-pills">
+        <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Inicio</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">Personajes</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">Mapas</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">Arsenal</a></li>
+      </ul>
+    </header>
 
-    <script src="sidebars.js"></script></body>
-</html>
+
+
