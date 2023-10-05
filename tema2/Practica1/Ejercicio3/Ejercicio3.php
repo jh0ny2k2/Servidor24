@@ -36,10 +36,10 @@
 
 
   $roles = array(
-    array ("nombre" => "Iniciador", "descripcion" => "Los iniciadores se adentran en terreno en disputa y revelan la posición de los agentes del otro equipo haciéndolos visibles no sólo para ellos sino también para los aliados.", "foto1" => "./img/Centinela.webp", "url" => "./img/personajes/fade.jpg"),
-    array ("nombre" => "Duelista", "descripcion" => "Rol que equivale al Entry Fragger de CS:GO. Su función es ganar la posición, hacer el mayor daño y retirarse, a poder ser con la baja o si no, al menos dañar mucho al equipo enemigo y dar la información.", "foto1" => "./img/Duelista.webp", "url" => "./img/personajes/fade.jpg"),
-    array ("nombre" => "Centinela", "descripcion" => "Los centinelas son agentes con un marcado componente defensivo, y sus habilidades se centran en ralentizar o impedir el paso a los enemigos. Útiles para impedir entrar en la zona de plante, tanto en la defensa como en el ataque.", "foto1" => "./img/Centinela.webp", "url" => "./img/personajes/fade.jpg"),
-    array ("nombre" => "Controlador", "descripcion" => "Estos agentes tienen la habilidad de cambiar o alterar las condiciones del mapa. Pueden levantar muros tanto sólidos como gaseosos dividiendo las zonas.", "foto" => "./img/personajes/gekko.jpg", "url" => "./img/personajes/fade.jpg"),
+    array ("nombre" => "Iniciador", "descripcion" => "Los iniciadores se adentran en terreno en disputa y revelan la posición de los agentes del otro equipo haciéndolos visibles no sólo para ellos sino también para los aliados.", "foto" => "./img/roles/Iniciador.jpg"),
+    array ("nombre" => "Duelista", "descripcion" => "Rol que equivale al Entry Fragger de CS:GO. Su función es ganar la posición, hacer el mayor daño y retirarse, a poder ser con la baja o si no, al menos dañar mucho al equipo enemigo y dar la información.", "foto" => "./img//roles/Duelista.webp"),
+    array ("nombre" => "Centinela", "descripcion" => "Los centinelas son agentes con un marcado componente defensivo, y sus habilidades se centran en ralentizar o impedir el paso a los enemigos. Útiles para impedir entrar en la zona de plante, tanto en la defensa como en el ataque.", "foto" => "./img/roles/Centinela.webp"),
+    array ("nombre" => "Controlador", "descripcion" => "Estos agentes tienen la habilidad de cambiar o alterar las condiciones del mapa. Pueden levantar muros tanto sólidos como gaseosos dividiendo las zonas.", "foto" => "./img/roles/Controlador.webp"),
   ); 
 
   echo '<div>';
@@ -53,9 +53,9 @@
   echo '  <div class="row">';
   foreach ($roles as $valor){
     echo '  <h3>' . $valor["nombre"]. '</h3>';
-    echo '  <div>';
+    echo '  <div class="row">';
     echo '    <div>
-                <p> ' . $valor["foto"]. '</p>
+                <img src="'.$valor["foto"].'"class="card-img-top w-50" alt="...">
               </div>';
     echo '    <div>
                 <p> ' . $valor["descripcion"]. '</p>
