@@ -1,3 +1,8 @@
+<?php
+    //INICIAMOS SESION ANTES QUE NADA
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -13,9 +18,6 @@
     </head>
     <body class="sb-nav-fixed">
     
-<?php
-
-?>
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
             <a class="navbar-brand ps-3" href="index.html">ADMINISTRACIÓN</a>
@@ -29,20 +31,26 @@
                 </div>
             </form>
             <!-- Navbar-->
-            <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
-                <!--<li class="nav-item dropdown">-->
-                    <a class="nav-link btn-sm" href="register.php" role="button" aria-expanded="false"><button type="button" class="btn btn-dark">Registrarse</button></a>
-                    <a class="nav-link btn-sm" href="login.php" role="button" aria-expanded="false"><button type="button" class="btn btn-dark">Iniciar Sesion</button></a>
-                    <!--
-                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#!">Settings</a></li>
-                            <li><a class="dropdown-item" href="#!">Activity Log</a></li>
-                            <li><hr class="dropdown-divider" /></li>
-                            <li><a class="dropdown-item" href="#!">Logout</a></li>
-                        </ul>
-                    -->
-                <!--</li>-->
-            </ul>
+
+<?php
+    if (isset($_SESSION['usuario'])) {
+        echo '
+        <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="controlador.php?accion=cerrarSesion">Cerrar Sesion</a></li>
+                </ul>
+            </li>
+        </ul>';
+    } else {
+        echo '
+        <a class="nav-link btn-sm" href="register.php" role="button" aria-expanded="false"><button type="button" class="btn btn-dark">Registrarse</button></a>
+        <a class="nav-link btn-sm" href="login.php" role="button" aria-expanded="false"><button type="button" class="btn btn-dark">Iniciar Sesion</button></a>';
+    }
+
+?>
+
         </nav>
         <div id="layoutSidenav">
             <div id="layoutSidenav_nav">
@@ -73,14 +81,18 @@
                     </div>
                     <div class="sb-sidenav-footer">
                         <div class="small">Logeado con:</div>
-                        Start Bootstrap
+<?php
+    if (isset($_SESSION['usuario'])) {
+        echo $_SESSION ["email"];
+    }
+?>
                     </div>
                 </nav>
             </div>
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4">Dashboard</h1>
+                        <h1 class="mt-4">Panel de control</h1>
                         
                         <div class="card mb-4">
                             <div class="card-header">
@@ -96,28 +108,21 @@
                                             <th>Ubicacion</th>
                                             <th>Tiempo</th>
                                             <th>Fecha Inicio</th>
-                                            <th>Salary</th>
+                                            <th>Salario</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
+                                            <th>Nombre</th>
+                                            <th>Descripcion</th>
+                                            <th>Ubicacion</th>
+                                            <th>Tiempo</th>
+                                            <th>Fecha Inicio</th>
+                                            <th>Salario</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
-                                        <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>$320,800</td>
-                                        </tr>
+                                        <!-- DONDE AÑADIMOS LOS PROYECTOS -->
                                         
                                     </tbody>
                                 </table>

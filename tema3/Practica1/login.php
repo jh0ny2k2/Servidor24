@@ -22,11 +22,11 @@
                                     <div class="card-body">
                                         <form action="controlador.php" method="POST">
                                             <div class="form-floating mb-3">
-                                                <input class="form-control" id="Email" name="emailLogin" type="email" placeholder="name@example.com" />
+                                                <input class="form-control" id="emailLogin" name="emailLogin" type="email" placeholder="name@example.com" />
                                                 <label for="Email">Correo Electronico</label>
                                             </div>
                                             <div class="form-floating mb-3">
-                                                <input class="form-control" id="passwordLogin" name="password" type="password" placeholder="Contraseña" />
+                                                <input class="form-control" id="passwordLogin" name="passwordLogin" type="password" placeholder="Contraseña" />
                                                 <label for="inputPassword">Contraseña</label>
                                             </div>
                                             <div class="form-check mb-3">
@@ -35,7 +35,7 @@
                                             </div>
                                             <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
                                                 <a class="small" href="password.html">¿Has olvidado la contraseña?</a>
-                                                <a class="btn btn-primary" href="index.html">Login</a>
+                                                <button class="w-10 btn btn-lg btn-primary" type="submit" name="login">Entrar</button>
                                             </div>
                                         </form>
                                     </div>

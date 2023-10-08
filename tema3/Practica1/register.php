@@ -54,12 +54,12 @@
                                                 </div>
                                             </div>
                                             <div class="mt-4 mb-0">
-                                                <div class="d-grid"><a class="btn btn-primary btn-block" href="login.html">Crear Cuenta</a></div>
+                                                <button class="w-100 btn btn-lg btn-primary" type="submit" name="registro">Registrarse</button>
                                             </div>
                                         </form>
                                     </div>
                                     <div class="card-footer text-center py-3">
-                                        <div class="small"><a href="login.html">¿Ya tienes? Inicia Sesión</a></div>
+                                        <div class="small"><a href="login.php">¿Ya tienes? Inicia Sesión</a></div>
                                     </div>
                                 </div>
                             </div>
