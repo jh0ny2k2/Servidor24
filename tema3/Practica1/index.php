@@ -33,20 +33,22 @@
             <!-- Navbar-->
 
 <?php
+
+    //COMPROBAMOS SI LA SESION ESTÁ INICIADA 
     if (isset($_SESSION['usuario'])) {
-        echo '
-        <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
-                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="controlador.php?accion=cerrarSesion">Cerrar Sesion</a></li>
-                </ul>
-            </li>
-        </ul>';
+        //SI ESTA LA SESION INICIADA PRINTEAMOS EL BOTON DEL PERFIL
+        echo '  <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">';
+        echo '      <li class="nav-item dropdown">';
+        echo '          <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a> ';
+        echo '          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown"> ';
+        echo '              <li><a class="dropdown-item" href="controlador.php?accion=cerrarSesion">Cerrar Sesion</a></li>';
+        echo '          </ul>';
+        echo '      </li>';
+        echo '  </ul>';
     } else {
-        echo '
-        <a class="nav-link btn-sm" href="register.php" role="button" aria-expanded="false"><button type="button" class="btn btn-dark">Registrarse</button></a>
-        <a class="nav-link btn-sm" href="login.php" role="button" aria-expanded="false"><button type="button" class="btn btn-dark">Iniciar Sesion</button></a>';
+        //SI LA SESION ESTA CERRADA ENTONCES PRINTEAMOS LOS BOTONES DE REGISTRO Y LOGIN
+        echo ' <a class="nav-link btn-sm" href="register.php" role="button" aria-expanded="false"><button type="button" class="btn btn-dark">Registrarse</button></a>';
+        echo ' <a class="nav-link btn-sm" href="login.php" role="button" aria-expanded="false"><button type="button" class="btn btn-dark">Iniciar Sesion</button></a>';
     }
 
 ?>
@@ -80,9 +82,9 @@
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">
-                        <div class="small">Logeado con:</div>
 <?php
     if (isset($_SESSION['usuario'])) {
+        echo '<div class="small">Logeado con:</div>';
         echo $_SESSION ["email"];
     }
 ?>
