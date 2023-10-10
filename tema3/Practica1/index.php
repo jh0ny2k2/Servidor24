@@ -71,9 +71,8 @@
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="">Añadir Proyecto</a>
-                                    <a class="nav-link" href="">Borrar Proyecto</a>
-                                    <a class="nav-link" href="">Borrar Todos Proyecto</a>
+                                    <a class="nav-link" href="añadirProyecto.php">Añadir Proyecto</a>
+                                    <a class="nav-link" href="borrarProyecto.php">Borrar Proyecto</a>
                                 </nav>
                             </div>
                             
@@ -85,7 +84,7 @@
 <?php
     if (isset($_SESSION['usuario'])) {
         echo '<div class="small">Logeado con:</div>';
-        echo $_SESSION ["email"];
+        echo $_SESSION["usuario"]["email"];
     }
 ?>
                     </div>
@@ -102,13 +101,12 @@
                                 Proyectos
                             </div>
                             <div class="card-body">
-                                <table id="datatablesSimple">
+                                <table id="table table-bordered-dark">
                                     <thead>
                                         <tr>
                                             <th>Nombre</th>
                                             <th>Descripcion</th>
-                                            <th>Ubicacion</th>
-                                            <th>Tiempo</th>
+                                            <th>Fecha Entrega Maxima</th>
                                             <th>Fecha Inicio</th>
                                             <th>Salario</th>
                                         </tr>
@@ -117,15 +115,20 @@
                                         <tr>
                                             <th>Nombre</th>
                                             <th>Descripcion</th>
-                                            <th>Ubicacion</th>
-                                            <th>Tiempo</th>
+                                            <th>Fecha Entrega Maxima</th>
                                             <th>Fecha Inicio</th>
                                             <th>Salario</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
                                         <!-- DONDE AÑADIMOS LOS PROYECTOS -->
-                                        
+                                        <tr>
+                                            <td>Tiger Nixon</td>
+                                            <td>System Architect</td>
+                                            <td>61</td>
+                                            <td>2011/04/25</td>
+                                            <td>$320,800</td>
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
