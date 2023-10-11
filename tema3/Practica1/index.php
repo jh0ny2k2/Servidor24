@@ -123,11 +123,13 @@
                                     <tbody>
                                         <!-- DONDE AÑADIMOS LOS PROYECTOS -->
                                         <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>$320,800</td>
+<?php
+                                        //echo '<th> ' . $_SESSION["nombre"] . ' </th>';       
+                                        //echo '<th> ' . $_SESSION["descripcion"] . ' </th>';     
+                                        //echo '<th> ' . $_SESSION["tiempo"] . ' </th>';     
+                                        //echo '<th> ' . $_SESSION["fechaInicio"] . ' </th>';     
+                                        //echo '<th> ' . $_SESSION["salario"] . ' </th>';    
+?>
                                         </tr>
                                     </tbody>
                                 </table>
