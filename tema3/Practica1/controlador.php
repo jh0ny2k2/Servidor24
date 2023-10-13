@@ -67,11 +67,8 @@
             $fechaInicio = $_GET['fechaInicio'];
             $salario = $_GET['salario'];
 
-            //Preguntar si la variable del carro existe en la sesión
-            if (!isset($_SESSION['carro'])) {
-                //Crear la variable del carro en la sesión
-                $_SESSION['carro'] = array();
-            } 
+            //CREAMOS LA VARIABLE DE LOS PROYECTO CONVIRTIENDOLO EN UN ARRAY
+            $_SESSION['proyectos'] = array();
 
             //Buscar el producto con el id del producto que se ha comprado
             //$producto = buscarProducto($idProducto);
@@ -88,7 +85,7 @@
             //}   
 
             //Redirigir a ver el carro de la compra
-            header("Location: carro.php");
+            header("Location: index.php");
             die();
             
         }
