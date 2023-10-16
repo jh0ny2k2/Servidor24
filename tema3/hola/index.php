@@ -99,11 +99,23 @@
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active">Panel de proyectos</li>
                         </ol>
-                        <div class="card mb-4">
-                            <div class="card-header">
-                                <i class="fas fa-table me-1"></i>
+                        
+<?php   
+            //SACAMOS LA INFORMACION DE EL ARRAY CREADO EN LA SESION DE LOS PROYECTOS
+            if (isset($_SESSION['proyectos'])){
+                $proyectos = $_SESSION['proyectos'];
+            } else {
+                $proyectos = array();
+            }
+
+            //SI LA SESION DEL USUARIO ESTA ACTIVA ENTONCES PRINTEAMOS EL PANEL DE CONTROL DE PROYECTOS
+            if (isset($_SESSION['usuario'])){
+                //CREAMOS LA CABECERA DE LA TABLA
+               echo '<div class="card mb-4">
+                        <div class="card-header">
+                            <i class="fas fa-table me-1"></i>
                                 Panel de Control de Proyectos
-                            </div>
+                        </div>
                             <div class="card-body">
                                 <table id="datatablesSimple">
                                     <thead>
@@ -127,13 +139,20 @@
                                         </tr>
                                     </tfoot>
                                     <tbody>
-                                        <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>$320,800</td>
+                                        <tr>';
+                                            //PRINTEAMOS LOS PROYECTOS SIEMPRE Y CUANDO LA SESION DEL USUARIO ESTE INICIADA
+                                            foreach ($proyectos as $dato) {
+                                                echo '<td> ' . $dato["nombreProyecto"] . ' </td>';       
+                                                echo '<td> ' . $dato["descripcion"] . ' </td>';   
+                                                echo '<td> ' . $dato["departamento"] . ' </td>';   
+                                                echo '<td> ' . $dato["tiempo"] . ' </td>';     
+                                                echo '<td> ' . $dato["fechaInicio"] . ' </td>';     
+                                                echo '<td> ' . $dato["salario"] . ' </td>';
+                                            }
+            } else { 
+                echo ' <p>Inicia Sesion para poder ver los proyectos activos</p>';
+            }
+?>
                                         </tr>
                                     </tbody>
                                 </table>

@@ -59,36 +59,21 @@ if($_GET) {
 }
 
 //CREAMOS LA ACCION DE AÑADIR PROYECTO
-if (isset($_GET['addProyecto'])) {
-    if (strcmp($_GET['addProyecto'],"addProyecto") == 0) {
-        $nombreProyecto = $_GET['nombreProyecto'];
-        $descripcion = $_GET['descripcion'];
-        $tiempo = $_GET['tiempo'];
-        $fechaInicio = $_GET['fechaInicio'];
-        $salario = $_GET['salario'];
+if (isset($_POST['addProyecto'])) {
+        //TRAEMOS LA INFORMACION DE EL FORMULARIO DE ADDPROYECTO
+        $nombreProyecto = $_POST['nombreProyecto'];
+        $descripcion = $_POST['descripcion'];
+        $departamento = $_POST['departamento'];
+        $tiempo = $_POST['tiempo'];
+        $fechaInicio = $_POST['fechaInicio'];
+        $salario = $_POST['salario'];
 
         //CREAMOS LA VARIABLE DE LOS PROYECTO CONVIRTIENDOLO EN UN ARRAY
-        $_SESSION['proyectos'] = array();
-
-        //Buscar el producto con el id del producto que se ha comprado
-        //$producto = buscarProducto($idProducto);
-
-        //Buscar el id del producto en el carro
-        //$posicion = array_search($idProducto, array_column($_SESSION['carro'], 'id'));
-
-        //Si el producto está ya en el carro actualizamos la cantidad
-        //if ($posicion !== FALSE) {
-            //$_SESSION['carro'][$posicion]['cantidad']++;
-        //} else {
-            //Añadir una línea al carro
-            //array_push($_SESSION['carro'], $producto);
-        //}   
+        $_SESSION['proyectos'] = array("nombreProyecto" => $nombreProyecto, "descripcion" => $descripcion, "departamento" => $departamento, "tiempo" => $tiempo, "fechaInicio" => $fechaInicio, "salario" => $salario,);
 
         //Redirigir a ver el carro de la compra
         header("Location: index.php");
         die();
-        
-    }
 }
 
 ?>
