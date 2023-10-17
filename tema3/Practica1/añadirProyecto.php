@@ -35,6 +35,10 @@
                                                 <label for="descripcion">Descripcion</label>
                                             </div>
                                             <div class="form-floating mb-3">
+                                                <input class="form-control" id="departamento" name="departamento" type="text" />
+                                                <label for="departamento">Departamento</label>
+                                            </div>
+                                            <div class="form-floating mb-3">
                                                 <input class="form-control" id="tiempo" name="tiempo" type="date" />
                                                 <label for="tiempo">Fecha Entrega Maxima</label>
                                             </div>
