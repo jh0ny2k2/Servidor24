@@ -1,51 +1,104 @@
-<?php
+//<?php
+    //INICIAMOS SESION ANTES QUE NADA
+    //session_start();  
+    //include "controlador.php";
 
-
-    $cartas = array (
-        array("nombre" => "c1", "url" => "./cartas/c2.svg", "value" => 5),
-        array("nombre" => "c2", "url" => "", "value" => 2),
-        array("nombre" => "c3", "url" => "", "value" => 3),
-        array("nombre" => "c4", "url" => "", "value" => 4),
-        array("nombre" => "c5", "url" => "", "value" => 5),
-        array("nombre" => "c6", "url" => "", "value" => 6),
-        array("nombre" => "c7", "url" => "", "value" => 7),
-        array("nombre" => "c11", "url" => "", "value" => 5),
-        array("nombre" => "c12", "url" => "", "value" => 5),
-        array("nombre" => "c13", "url" => "", "value" => 5),
-        array("nombre" => "d1", "url" => "", "value" => 5),
-        array("nombre" => "d2", "url" => "", "value" => 2),
-        array("nombre" => "d3", "url" => "", "value" => 3),
-        array("nombre" => "d4", "url" => "", "value" => 4),
-        array("nombre" => "d5", "url" => "", "value" => 5),
-        array("nombre" => "d6", "url" => "", "value" => 6),
-        array("nombre" => "d7", "url" => "", "value" => 7),
-        array("nombre" => "d11", "url" => "", "value" => 5),
-        array("nombre" => "d12", "url" => "", "value" => 5),
-        array("nombre" => "d13", "url" => "", "value" => 5),
-        array("nombre" => "p1", "url" => "", "value" => 5),
-        array("nombre" => "p2", "url" => "", "value" => 2),
-        array("nombre" => "p3", "url" => "", "value" => 3),
-        array("nombre" => "p4", "url" => "", "value" => 4),
-        array("nombre" => "p5", "url" => "", "value" => 5),
-        array("nombre" => "p6", "url" => "", "value" => 6),
-        array("nombre" => "p7", "url" => "", "value" => 7),
-        array("nombre" => "p11", "url" => "", "value" => 5),
-        array("nombre" => "p12", "url" => "", "value" => 5),
-        array("nombre" => "p13", "url" => "", "value" => 5),
-        array("nombre" => "t1", "url" => "", "value" => 5),
-        array("nombre" => "t2", "url" => "", "value" => 2),
-        array("nombre" => "t3", "url" => "", "value" => 3),
-        array("nombre" => "t4", "url" => "", "value" => 4),
-        array("nombre" => "t5", "url" => "", "value" => 5),
-        array("nombre" => "t6", "url" => "", "value" => 6),
-        array("nombre" => "t7", "url" => "", "value" => 7),
-        array("nombre" => "t11", "url" => "", "value" => 5),
-        array("nombre" => "t12", "url" => "", "value" => 5),
-        array("nombre" => "t13", "url" => "", "value" => 5),
-    );
-
-    foreach ($cartas as $valor){
-        echo '<img src="' . $valor["url"] . '">';
-    }
+    //PRINTEAMOS LA CARTA DEL DORSO
+    //echo '<div class="">';
+            //CREAMOS UN BOTON QUE FUNCIONE PARA PODER PULSAR Y QUE SAQUE UNA CARTA
+    //echo '  <button name="sacarCarta"><img src="./cartas/dorso-rojo.svg" width="200"></button>';
+    //echo '</div>';
    
+    //if ()
+//?>
+
+<?php
+    
+    
+    /**************FUNCTION****************/
+    
+    function value($valor){
+        $salida = -1;
+        
+        if($valor == 0 or $valor == 10 or $valor == 20 or $valor == 30){
+            $salida = 1;
+            
+        }else if($valor == 1 or $valor == 11 or $valor == 21 or $valor == 31){
+            $salida = 2;
+            
+        }else if($valor == 2 or $valor == 12 or $valor == 22 or $valor == 32){
+            $salida = 3;
+            
+        }else if($valor == 3 or $valor == 13 or $valor == 23 or $valor == 33){
+            $salida = 4;
+            
+        }else if($valor == 4 or $valor == 14 or $valor == 24 or $valor == 34){
+            $salida = 5;
+            
+        }else if($valor == 5 or $valor == 15 or $valor == 25 or $valor == 35){
+            $salida = 6;
+            
+        }else if($valor == 6 or $valor == 16 or $valor == 26 or $valor == 36){
+            $salida = 7;
+        
+        }else{
+            $salida = 0.5;
+        }
+        
+        return $salida;
+    }
+    
+    function putCard() {
+        $card = rand(0,39);
+        
+        echo "<img src='".$card.".jpg'/>";
+        
+        return value($card);
+    }
+    
+    
+    
+    function onePlay(){
+        $max = 7.5;
+        
+        $score = putCard();
+        
+        while($score <= 7.5){
+        
+            $score += putCard();
+            
+            if($score > 5 ){
+                break;
+            }else{
+                $score += putCard();
+            }
+        }
+        
+        if($score <= 7.5){
+            echo "Score: $score.";
+        }else{
+            echo "Score: $score. <b>Pass</b>";
+        }
+        return $score;
+    }
+    
+    
+    
+    /**************MAIN*****************/
+    
+    
+    //$players = $_GET['players'];
+    $winner = 0;
+    
+    for($i= 1; $i <= $players; $i++ ){
+        
+        echo "<H3>Player: $i </H3>";
+        
+        $score = onePlay();
+        
+        
+    }
+    
+
+    
 ?>

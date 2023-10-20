@@ -31,7 +31,7 @@
                                                 <label for="nombreProyecto">Nombre</label>
                                             </div>
                                             <div class=" align-items-center justify-content-between mt-4 mb-0">
-                                                <button class="w-10 btn btn-lg btn-primary" type="submit" name="deleteProyecto">Borrar Proyecto</button>
+                                                <button class="w-10 btn btn-lg btn-primary" type="submit" name="deleteProyecto"><a href="controlador.php?accion=borrarProyecto"></a></button>
                                             </div>
                                         </form>
                                     </div>

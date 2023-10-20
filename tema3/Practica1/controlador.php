@@ -77,4 +77,45 @@ if (isset($_POST['addProyecto'])) {
         die();
 }
 
+//CREAMOS LA ACCION DE ELIMINAR PROYECTO
+if (isset($_POST['deleteProyecto'])) {
+    
+    //TRAEMOS LA INFORMACION DE EL FORMULARIO DE ADDPROYECTO
+    $nombreProyecto = $_POST['nombreProyecto'];
+
+    //FUNCION PARA BUSCAR UN PROYECTO CON SU NOMBRE
+    function buscarProducto($nombreProyecto) {
+        foreach($_SESSION['proyectos'] as $proyecto) {
+            if (strcmp($proyecto['id'], $nombreProyecto) == 0 ) {
+                return $proyecto;
+            }
+        }
+
+        return array();
+    }
+
+    //CREAMOS LA ACCION DE BORRAR PROYECTO
+    if (isset($_GET['accion'])) {
+        if (strcmp($_GET['accion'],"borrarProyecto") == 0) {
+
+            $nombreProyecto = $_GET['nombreProyecto'];
+
+            $posicion = array_search($nombreProyecto, array_column($_SESSION['proyecto'], 'nombre'));
+
+            if ($posicion !== FALSE) {
+                //ELIMINAMOS EL PROYECTO DE LA LINEA Y RECONSTRUYE EL ARRAY DE LOS PROYECTOS
+                array_splice($_SESSION['proyecto'],$posicion,1);
+            }
+
+            //REDIRIGIMOS A INDEX PHP
+            header("Location: index.php");
+            die(); 
+        }
+    }
+
+    //Redirigir a ver el carro de la compra
+    header("Location: index.php");
+    die();
+}
+
 ?>
