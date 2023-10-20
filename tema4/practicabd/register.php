@@ -47,7 +47,7 @@
                             </a>
                         </div>
                         <div class="login-form">
-                            <form action="" method="post">
+                            <form action="controlador.php" method="post">
                                 <div class="form-group">
                                     <label>Nombre</label>
                                     <input class="au-input au-input--full" type="text" name="nombre">
@@ -62,7 +62,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Contraseña</label>
-                                    <input class="au-input au-input--full" type="password" name="password">
+                                    <input class="au-input au-input--full" type="password" name="contraseña">
                                 </div>
                                 <div class="mb-2">
                                     <label for="provincia" class="form-label">Provincia</label>
@@ -79,7 +79,7 @@
                                     </select>
                                 </div>
                                 <hr>
-                                <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit">Registrarse</button>
+                                <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit" name="registro">Registrarse</button>
                             </form>
                         </div>
                     </div>

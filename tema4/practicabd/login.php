@@ -47,16 +47,16 @@
                             </a>
                         </div>
                         <div class="login-form">
-                            <form action="" method="post">
+                            <form action="controlador.php" method="post">
                                 <div class="form-group">
-                                    <label>Correo Electronico</label>
+                                    <label for="email">Correo Electronico</label>
                                     <input class="au-input au-input--full" type="email" name="email" placeholder="Email">
                                 </div>
                                 <div class="form-group">
-                                    <label>Contraseña</label>
+                                    <label for="password">Contraseña</label>
                                     <input class="au-input au-input--full" type="password" name="password" placeholder="contraseña">
                                 </div>
-                                <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit">Log in</button>
+                                <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit" name="login">Log in</button>
                             </form>
                         </div>
                     </div>

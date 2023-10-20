@@ -141,14 +141,12 @@
                                     <tbody>
                                         <tr>';
                                             //PRINTEAMOS LOS PROYECTOS SIEMPRE Y CUANDO LA SESION DEL USUARIO ESTE INICIADA
-                                            foreach ($proyectos as $dato) {
-                                                echo '<td> ' . $dato["nombreProyecto"] . ' </td>';       
-                                                echo '<td> ' . $dato["descripcion"] . ' </td>';   
-                                                echo '<td> ' . $dato["departamento"] . ' </td>';   
-                                                echo '<td> ' . $dato["tiempo"] . ' </td>';     
-                                                echo '<td> ' . $dato["fechaInicio"] . ' </td>';     
-                                                echo '<td> ' . $dato["salario"] . ' </td>';
-                                            }
+                                                echo '<td> ' . $proyectos["nombreProyecto"] . ' </td>';       
+                                                echo '<td> ' . $proyectos["descripcion"] . ' </td>';   
+                                                echo '<td> ' . $proyectos["departamento"] . ' </td>';   
+                                                echo '<td> ' . $proyectos["tiempo"] . ' </td>';     
+                                                echo '<td> ' . $proyectos["fechaInicio"] . ' </td>';     
+                                                echo '<td> ' . $proyectos["salario"] . ' </td>';
             } else { 
                 echo ' <p>Inicia Sesion para poder ver los proyectos activos</p>';
             }
