@@ -14,19 +14,18 @@ if ($_POST) {
         $email = $_POST['email'];
         $password = $_POST['password'];
         
+        $nombre = sacarNombre($email);
         //COMPROBAMOS SI LA CONTRASEÑA Y EL EMAIL SON CORRECTOS
-        if (inicioCorrecto($email,$password)){
+        if (inicioCorrecto($email,$password) ){
             //PROCESAMOS LA INFORMACION DEL FORMULARIO DE LOGIN"
             $_SESSION['usuario'] = array("nombre" => "" , "email" => $email);
-            echo ' <p>entra</p>';
             //REDIRIGIMOS A INDEX.PHP
-            //header("Location: index.php");
-            //die();
+            header("Location: index.php");
+            die();
         } else {
             //REDIRIGIR A LOGIN POR ERROR EN LOS DATOS
-            //header("Location: login.php?error=Datos incorrectos");
-            //die();
-            echo ' <p>error</p>';
+            header("Location: login.php?error=Datos incorrectos");
+            die();
         }
     }
 
@@ -40,10 +39,10 @@ if ($_POST) {
         $provincia = $_POST['provincia'];
         
         //COMPROBAMOS SI EL EMAIL ESTA YA EN LA BASE DE DATOS
-        //if (!comprobarEmail($email)) {
-            //header("Location: registro.php?error=Email en uso");
-            //die();
-        //}
+        if (!comprobarEmail($email)) {
+            header("Location: registro.php?error=Email en uso");
+            die();
+        }
 
         //Encriptar password
         $passwordHash = password_hash($password, PASSWORD_DEFAULT, [15]);
@@ -52,7 +51,7 @@ if ($_POST) {
         $_SESSION['usuario'] = array("nombre" => $nombre, "email" => $email);
 
         //INSERTAMOS USUARIO EN LA BBDD
-        insertarUsario($nombre, $apellidos, $email, $password, $provincia);
+        insertarUsario($nombre, $apellidos, $email, $passwordHash, $provincia);
 
         //REDIRIGIR A INDEX.PHP
         header("Location: index.php");
@@ -78,7 +77,22 @@ if($_GET) {
         }
     }
 
+    //CREAMOS LA ACCION DE BORRAR PROYECTOS
+    if (isset($_GET['accion'])) {
+        //COMPROBAMOS QUE LA ACCION ES BORRAR PRODUCTO
+        if (strcmp($_GET['accion'],"borrarProyecto") == 0) {
+            
+            borrarProyectos($_GET['id']);
+
+            //echo '<p>entra</p>';
+            //REDIRIGIMOS A INDEX.PHP
+            header("Location: proyectos.php");
+            die();
+        }
+    }
 }
+
+
 
 //FORMULARIO PARA AÑADIR UN PROYECTO
 if (isset($_POST["registroProyecto"])) {
@@ -86,19 +100,20 @@ if (isset($_POST["registroProyecto"])) {
     $nombre = $_POST['nombre'];
     $descripcion = $_POST['descripcion'];
     $departamento = $_POST['departamento'];
+    $fechaInicio = $_POST['fechaInicio'];
+    $fechaFinal = $_POST['fechaFin'];
     $estado = $_POST['estado'];
     $salario = $_POST['salario'];
 
     //PROCESAMOS LA INFORMACION DEL FORMULARIO DE REGISTRO
-    $_SESSION['usuario'] = array("nombre" => $nombre, "descripcion" => $descripcion, "departamento" => $departamento, "estado" => $estado, "salario" => $salario);
+    $_SESSION['proyecto'] = array("nombre" => $nombre, "descripcion" => $descripcion, "fechaInicio" => $fechaInicio, "fechaFinal" => $fechaFinal, "departamento" => $departamento, "estado" => $estado, "salario" => $salario);
 
     //INSERTAMOS USUARIO EN LA BBDD
-    insertarProyecto($nombre, $descripcion, $departamento, $estado, $salario);
+    insertarProyecto($nombre, $descripcion, $departamento, $fechaInicio, $fechaFinal, $estado, $salario);
 
     //REDIRIGIR A INDEX.PHP
     header("Location: index.php");
     die();
-
 } 
 
 ?>

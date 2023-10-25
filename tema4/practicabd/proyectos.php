@@ -65,7 +65,7 @@
                 <div class="container-fluid">
                     <ul class="navbar-mobile__list list-unstyled">
                         <li class="has-sub">
-                            <a class="js-arrow" href="index.html">
+                            <a class="js-arrow" href="index.php">
                                 <i class="fas fa-tachometer-alt"></i>Dashboard
                             </a>
                         </li>
@@ -78,7 +78,7 @@
         <!-- MENU SIDEBAR-->
         <aside class="menu-sidebar d-none d-lg-block">
             <div class="logo">
-                <a href="index.php">
+                <a href="#">
                     <img src="images/icon/logo.png" alt="Cool Admin" />
                 </a>
             </div>
@@ -137,7 +137,7 @@
                                                 </a>
                                             </div>
                                             <div class="account-dropdown__footer">
-                                                <a href="proyectos.php">   
+                                                <a href="#">   
                                                     <i class="zmdi zmdi-attachment-alt"></i>Ver mis proyectos
                                                 </a>
                                             </div>
@@ -170,9 +170,9 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-lg-9">
-                                <h2 class="title-1 m-b-25">Panel de Proyectos</h2>
-                                    <table class="table table-borderless ">
-                                        <thead>
+                                <h2 class="title-1 m-b-25">Mis proyectos</h2>
+                                    <table class="table table-borderless">
+                                        <thead class="border-bottom border-dark">
                                             <tr>
                                                 <th>Nombre</th>
                                                 <th>Descripcion</th>
@@ -181,11 +181,13 @@
                                                 <th>Fecha Final</th>
                                                 <th>Estado</th>
                                                 <th>salario</th>
+                                                <th>Opciones</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
+                                        <tbody >
 <?php
-$proyectos = sacarProyectos();
+//$email = $_SESSION["usuario"]["email"];
+$proyectos = sacarProyectos(); 
 foreach ($proyectos as $valor) {
     echo '                                  <tr>';
     echo '                                      <td> ' . $valor['nombre'] . '</td>';
@@ -194,7 +196,11 @@ foreach ($proyectos as $valor) {
     echo '                                      <td> ' . $valor['fechaInicial'] . '</td>';
     echo '                                      <td> ' . $valor['fechaFin'] . '</td>';
     echo '                                      <td> ' . $valor['estado'] . '</td>';
-    echo '                                      <td> ' . $valor['salario'] . ' $</td>';
+    echo '                                      <td> ' . $valor['salario'] . '</td>';
+    echo '                                      <td>';
+    echo '                                      <a href="./controlador.php?accion=borrarProyecto&id'.$valor["id"].'"><button type="button" class="btn btn-danger"><i class="zmdi zmdi-close"></i></button></a>';
+    echo '                                      <button type="button" class="btn btn-success"><i class="zmdi zmdi-edit"></i></button>'; 
+    echo '                                      </td>';
     echo '                                  </tr>';
 }
 ?>

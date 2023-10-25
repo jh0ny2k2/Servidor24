@@ -3,7 +3,7 @@
     session_start();
 
     //INCLUIMOS EL ARCHIVO LIB.PHP
-    include_once("lib.php");
+    include_once "./lib.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -39,7 +39,6 @@
 
     <!-- Main CSS-->
     <link href="css/theme.css" rel="stylesheet" media="all">
-    
 
 </head>
 
@@ -65,7 +64,7 @@
                 <div class="container-fluid">
                     <ul class="navbar-mobile__list list-unstyled">
                         <li class="has-sub">
-                            <a class="js-arrow" href="index.html">
+                            <a class="js-arrow" href="index.php">
                                 <i class="fas fa-tachometer-alt"></i>Dashboard
                             </a>
                         </li>
@@ -78,7 +77,7 @@
         <!-- MENU SIDEBAR-->
         <aside class="menu-sidebar d-none d-lg-block">
             <div class="logo">
-                <a href="index.php">
+                <a href="#">
                     <img src="images/icon/logo.png" alt="Cool Admin" />
                 </a>
             </div>
@@ -86,7 +85,7 @@
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
                         <li class="active has-sub">
-                            <a class="js-arrow" href="#">
+                            <a class="js-arrow" href="index.php">
                                 <i class="fas fa-tachometer-alt"></i>Dashboard
                             </a>
                         </li>
@@ -104,7 +103,7 @@
                     <div class="container">
                         <div class="header-wrap">
                             <form class="form-header" action="" method="POST">
-                                <input class="au-input au-input--xl" type="text" name="search" placeholder="Busca el proyecto que necesitas" />
+                                <input class="au-input au-input--xl" type="text" name="search" placeholder="Search for datas &amp; reports..." />
                                 <button class="au-btn--submit" type="submit">
                                     <i class="zmdi zmdi-search"></i>
                                 </button>
@@ -115,8 +114,7 @@
     if (isset($_SESSION['usuario'])) {
         //SI ESTA LA SESION INICIADA PRINTEAMOS EL BOTON DEL PERFIL
         echo '<div class="header-button">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addProducto">Nuevo</button>
-                
+                <button type="button" class="btn btn-primary "data-bs-toggle="modal" data-bs-target="#addProducto">Nuevo</button>
                                 <div class="account-wrap">
                                     <div class="account-item clearfix js-item-menu">
                                         <div class="content">
@@ -132,7 +130,7 @@
                                                 </div>
                                             </div>
                                             <div class="account-dropdown__footer">
-                                                <a href="perfil.php">   
+                                                <a href="#">   
                                                     <i class="zmdi zmdi-account-box"></i>Perfil
                                                 </a>
                                             </div>
@@ -170,38 +168,15 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-lg-9">
-                                <h2 class="title-1 m-b-25">Panel de Proyectos</h2>
-                                    <table class="table table-borderless ">
-                                        <thead>
-                                            <tr>
-                                                <th>Nombre</th>
-                                                <th>Descripcion</th>
-                                                <th>departamento</th>
-                                                <th>Fecha Inicio</th>
-                                                <th>Fecha Final</th>
-                                                <th>Estado</th>
-                                                <th>salario</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-<?php
-$proyectos = sacarProyectos();
-foreach ($proyectos as $valor) {
-    echo '                                  <tr>';
-    echo '                                      <td> ' . $valor['nombre'] . '</td>';
-    echo '                                      <td> ' . $valor['descripcion'] . '</td>';
-    echo '                                      <td> ' . $valor['departamento'] . '</td>';
-    echo '                                      <td> ' . $valor['fechaInicial'] . '</td>';
-    echo '                                      <td> ' . $valor['fechaFin'] . '</td>';
-    echo '                                      <td> ' . $valor['estado'] . '</td>';
-    echo '                                      <td> ' . $valor['salario'] . ' $</td>';
-    echo '                                  </tr>';
-}
-?>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                <h2 class="title-1 m-b-25">Perfil</h2>
                             </div>
+<?php
+
+                            echo '<div class="content">
+                                <a class="js-acc-btn" href="#"> ' . $_SESSION["usuario"]["email"] . '</a>
+                            </div>';
+?>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -217,65 +192,62 @@ foreach ($proyectos as $valor) {
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Añadir Proyecto</h5>
-                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <form action="controlador.php" method="POST" id="nuevoProducto">
                         <div class="mb-3 row">
-                            <label for="nombre" class="col-5 col-form-label">Nombre del proyecto</label>
-                            <div class="col-6">
-                            <input type="text" class="form-control-plaintext" id="nombre" name="nombre" placeholder="Nombre" required>
+                            <label for="nombre" class="col-sm-2 col-form-label">Nombre del proyecto</label>
+                            <div class="col-sm-10">
+                            <input type="text" class="form-control-plaintext" id="nombre" name="nombre" placeholder="nombre" required>
                             </div>
                         </div>
                         <div class="mb-3 row">
-                            <label for="descripcion" class="col-5 col-form-label">Descripcion del proyecto</label>
-                            <div class="col-6">
-                            <input type="text" class="form-control-plaintext" id="descripcion" name="descripcion" placeholder="Descripcion" required>
+                            <label for="descripcion" class="col-sm-2 col-form-label">Descripcion del proyecto</label>
+                            <div class="col-sm-10">
+                            <input type="text" class="form-control-plaintext" id="descripcion" name="descripcion" placeholder="descripcion" required>
                             </div>
                         </div>
                         <div class="mb-3 row">
-                            <label for="departamento" class="col-5 col-form-label">Departamento</label>
-                            <div class="col-6">
+                            <label for="departamento" class="col-sm-2 col-form-label">Departamento</label>
+                            <div class="col-sm-10">
                             <input type="text" class="form-control-plaintext" id="departamento" name="departamento" placeholder="Departamento" required>
                             </div>
                         </div>
                         <div class="mb-3 row">
-                            <label for="salario" class="col-5 col-form-label">Fecha Inicio</label>
-                            <div class="col-6">
-                            <input type="date" class="form-control-plaintext" id="salario" name="fechaInicio" required>
+                            <label for="departamento" class="col-sm-2 col-form-label">Fecha Inicio</label>
+                            <div class="col-sm-10">
+                            <input type="text" class="form-control-plaintext" id="departamento" name="departamento" placeholder="Departamento" required>
                             </div>
                         </div>
                         <div class="mb-3 row">
-                            <label for="salario" class="col-5 col-form-label">Fecha Final</label>
-                            <div class="col-6">
-                            <input type="date" class="form-control-plaintext" id="salario" name="fechaFin" required>
+                            <label for="departamento" class="col-sm-2 col-form-label">Fecha fin</label>
+                            <div class="col-sm-10">
+                            <input type="text" class="form-control-plaintext" id="departamento" name="departamento" placeholder="Departamento" required>
                             </div>
                         </div>
                         <div class="mb-3 row">
-                            <label for="estado" class="col-5 col-form-label">Estado</label>
-                            <div class="col-6">
+                            <label for="estado" class="col-sm-2 col-form-label">Estado</label>
+                            <div class="col-sm-10">
                                 <select class="form-select" aria-label="Default select example" name="estado">
                                     <option selected value="noIniciado">No iniciado</option>
                                     <option value="activo">Activo</option>
-                                    <option value="finalizado">Finalizado</option>
                                     <option value="parado">Parado</option>
-                                    <option value="preparando">Preparando</option>
                                 </select>
                             </div>
 			            </div>
                         <div class="mb-3 row">
-                            <label for="salario" class="col-5 col-form-label">Salario</label>
-                            <div class="col-6">
-                            <input type="number" class="form-control-plaintext" id="salario" name="salario" placeholder="salario" required>
+                            <label for="salario" class="col-sm-2 col-form-label">Salario</label>
+                            <div class="col-sm-10">
+                            <input type="text" class="form-control-plaintext" id="salario" name="salario" placeholder="salario" required>
                             </div>
                         </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                            <button type="submit" class="btn btn-primary" name="registroProyecto">Añadir Proyecto</button>
-                </div>
                     </form>  
                 </div>
-                
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary" name="registroProyecto">Añadir Proyecto</button>
+                </div>
             </div>
         </div>
     </div>
