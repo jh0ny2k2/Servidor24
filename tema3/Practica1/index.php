@@ -39,9 +39,6 @@
         echo '      <li class="nav-item dropdown">';
         echo '          <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a> ';
         echo '          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown"> ';
-        echo '              <li><a class="dropdown-item" href="borrarProyecto.php">Borrar Proyecto</a>';
-        echo '              <li><a class="dropdown-item" href="añadirProyecto.php">Añadir Proyecto</a></li></li>';
-        echo '              <li><hr class="dropdown-divider" /></li>';
         echo '              <li><a class="dropdown-item" href="controlador.php?accion=cerrarSesion">Cerrar Sesion</a></li>';
         echo '          </ul>';
         echo '      </li>';
@@ -64,6 +61,25 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Panel de control
                             </a>
+<?php
+
+    if (isset($_SESSION['usuario'])) {
+        echo '<a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+        <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+        Opciones
+        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+    </a>
+    <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+        <nav class="sb-sidenav-menu-nested nav">
+            <a class="nav-link" href="borrarProyecto.php">Borrar Proyecto</a>
+            <a class="nav-link" href="añadirProyecto.php">Añadir Proyecto</a>
+        </nav>
+    </div>';
+    }
+
+
+?>
+                            
                         </div>
                     </div>
 <?php
@@ -93,7 +109,7 @@
             }
 
             //SI LA SESION DEL USUARIO ESTA ACTIVA ENTONCES PRINTEAMOS EL PANEL DE CONTROL DE PROYECTOS
-            if (isset($_SESSION['proyectos'])){
+            if (isset($_SESSION['usuario'])){
                 //CREAMOS LA CABECERA DE LA TABLA
                echo '<div class="card mb-4">
                         <div class="card-header">
@@ -125,15 +141,12 @@
                                     <tbody>
                                         <tr>';
                                             //PRINTEAMOS LOS PROYECTOS SIEMPRE Y CUANDO LA SESION DEL USUARIO ESTE INICIADA
-                                            if (isset($_SESSION["proyectos"])){
-                                                    echo '<td> ' . $proyectos["nombreProyecto"] . ' </td>';       
-                                                    echo '<td> ' . $proyectos["descripcion"] . ' </td>';   
-                                                    echo '<td> ' . $proyectos["departamento"] . ' </td>';   
-                                                    echo '<td> ' . $proyectos["tiempo"] . ' </td>';     
-                                                    echo '<td> ' . $proyectos["fechaInicio"] . ' </td>';     
-                                                    echo '<td> ' . $proyectos["salario"] . ' </td>';
-                                            }
-                                                
+                                                echo '<td> ' . $proyectos["nombreProyecto"] . ' </td>';       
+                                                echo '<td> ' . $proyectos["descripcion"] . ' </td>';   
+                                                echo '<td> ' . $proyectos["departamento"] . ' </td>';   
+                                                echo '<td> ' . $proyectos["tiempo"] . ' </td>';     
+                                                echo '<td> ' . $proyectos["fechaInicio"] . ' </td>';     
+                                                echo '<td> ' . $proyectos["salario"] . ' </td>';
             } else { 
                 echo ' <p>Inicia Sesion para poder ver los proyectos activos</p>';
             }
