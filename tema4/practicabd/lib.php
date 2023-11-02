@@ -139,26 +139,43 @@
         //RETURNAMOS LA VARIABLE PARA SER PRINTEADA
         return $proyectos;
     }
-
-    //FUNCION PARA SACAR ID DE USUARIO
-    function sacarID($email) {
+    //FUNCION PARA CONSULTAR PRODUCTOS
+    function sacarProyectosActivos(){
         //PRIMERO NOS CONECTAMOS A LA BASE DE DATOS
-        $conexion = conexionBBDD("PHP2023", "root", "toor");
+        $conexion = ConexionBBDD("PHP2023", "root", "toor");
 
         //HACEMOS LA CONSULTA PARA LA BASE DE DATOS
-        $consulta = $conexion->prepare("select id from usuario where email = ?");
-        $consulta->bindValue(1, $email);
-        $consulta->setFetchMode(PDO::FETCH_ASSOC);
-        $consulta->execute();
+        $consulta = $conexion -> prepare ("select * from proyectos where proyectos.estado = 'activo'");
+        $consulta -> setFetchMode(PDO::FETCH_ASSOC);
+        $consulta -> execute ();
 
         //PONEMOS TODOS LOS PRODUCTOS EN LA VARIABLE
-        $resultado = $consulta->fetchAll();
+        $proyectos = $consulta->fetchAll();
 
         //CERRAMOS SESION EN LA BASE DE DATOS
         $conexion = null; 
 
         //RETURNAMOS LA VARIABLE PARA SER PRINTEADA
-        return $resultado;
+        return $proyectos;
+    }
+
+    function sacarProyectosTerminados(){
+        //PRIMERO NOS CONECTAMOS A LA BASE DE DATOS
+        $conexion = ConexionBBDD("PHP2023", "root", "toor");
+
+        //HACEMOS LA CONSULTA PARA LA BASE DE DATOS
+        $consulta = $conexion -> prepare ("select * from proyectos where proyectos.estado = 'finalizado'");
+        $consulta -> setFetchMode(PDO::FETCH_ASSOC);
+        $consulta -> execute ();
+
+        //PONEMOS TODOS LOS PRODUCTOS EN LA VARIABLE
+        $proyectos = $consulta->fetchAll();
+
+        //CERRAMOS SESION EN LA BASE DE DATOS
+        $conexion = null; 
+
+        //RETURNAMOS LA VARIABLE PARA SER PRINTEADA
+        return $proyectos;
     }
 
     //FUNCION PARA CONSULTAR PRODUCTOS
@@ -194,21 +211,45 @@
         $conexion = null;
     }
 
+    //FUNCION PARA VISUALIZAR UN PROYECTO EN ESPECIFICO
+    function visualizarProyectos($id){
+        $conexion = ConexionBBDD("PHP2023","root","toor");
+
+        $consulta = $conexion->prepare ("SELECT * from proyectos where id = ?");
+        $consulta->bindValue (1, $id);
+        $consulta->setFetchMode(PDO::FETCH_ASSOC);
+        $consulta->execute();
+
+        $visualizacion = $consulta->fetch();
+
+        $conexion = null;
+
+        return $visualizacion;
+    }
+
+
     //FUNCION PARA BUSCAR PROYECTOS 
      function buscarProyecto($idUsuario) {
-        $conexion = ConexionBBDD("php","root","toor");
 
+        //NOS CONECTAMOS A LA BASE DE DATOS
+        $conexion = ConexionBBDD("PHP2023","root","toor");
+
+        //PREPRARAMOS LA CONSULTA
         $consulta = $conexion->prepare("SELECT * FROM proyectos WHERE id=?");
         $consulta->bindValue(1,$idUsuario);
         $consulta->setFetchMode(PDO::FETCH_ASSOC);
         $consulta->execute();
 
+        //SI SE HA ENCONTRADO ALGO ENTONCES RETURNAMOS LOS RESULTADOS
         if ($usuario = $consulta->fetch()) { 
             return $usuario;
         }
+
+        //CERRAMOS SESION EN LA BASE DE DATOS
         $conexion = null;
 
-        return array();
+        //RETURNAMOS UN ARRAY VACIO YA QUE NO SE HA ENCONTRADO NADA
+        return array(); 
     }
 
     

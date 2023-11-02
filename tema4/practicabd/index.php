@@ -110,53 +110,7 @@
                                 </button>
                             </form>
 
-<?php
 
-    if (isset($_SESSION['usuario'])) {
-        //SI ESTA LA SESION INICIADA PRINTEAMOS EL BOTON DEL PERFIL
-        echo '<div class="header-button">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addProducto">Nuevo</button>
-                
-                                <div class="account-wrap">
-                                    <div class="account-item clearfix js-item-menu">
-                                        <div class="content">
-                                            <a class="js-acc-btn" href="#"> ' . $_SESSION["usuario"]["nombre"] .'</a>
-                                        </div>
-                                        <div class="account-dropdown js-dropdown">
-                                            <div class="info clearfix">
-                                                <div class="content">
-                                                    <h5 class="name">
-                                                        <a href="#">' . $_SESSION["usuario"]["nombre"] .'</a>
-                                                    </h5>
-                                                    <span class="email">' . $_SESSION["usuario"]["email"] .'</span>
-                                                </div>
-                                            </div>
-                                            <div class="account-dropdown__footer">
-                                                <a href="perfil.php">   
-                                                    <i class="zmdi zmdi-account-box"></i>Perfil
-                                                </a>
-                                            </div>
-                                            <div class="account-dropdown__footer">
-                                                <a href="proyectos.php">   
-                                                    <i class="zmdi zmdi-attachment-alt"></i>Ver mis proyectos
-                                                </a>
-                                            </div>
-                                            <div class="account-dropdown__footer">
-                                                <a href="controlador.php?accion=cerrarSesion">   
-                                                    <i class="zmdi zmdi-power"></i>Cerrar Sesion
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>';
-    } else {
-        //SI LA SESION ESTA CERRADA ENTONCES PRINTEAMOS LOS BOTONES DE REGISTRO Y LOGIN
-        echo ' <a href="login.php" role="button"><button type="button" class="btn btn-primary">Iniciar Sesion</button></a>';
-        echo ' <a href="register.php" role="button"><button type="button" class="btn btn-primary">Registrarse</button></a>';
-    }
-
-?>
                             
                         </div>
                     </div>
@@ -258,8 +212,6 @@ foreach ($proyectos as $valor) {
                                     <option selected value="noIniciado">No iniciado</option>
                                     <option value="activo">Activo</option>
                                     <option value="finalizado">Finalizado</option>
-                                    <option value="parado">Parado</option>
-                                    <option value="preparando">Preparando</option>
                                 </select>
                             </div>
 			            </div>

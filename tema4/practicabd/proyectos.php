@@ -168,8 +168,8 @@
             <div class="main-content">
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-lg-9">
+                        <div class="row ">
+                            <div class="col-lg-12 bg-light border rounded mb-5">
                                 <h2 class="title-1 m-b-25">Mis proyectos</h2>
                                     <table class="table table-borderless">
                                         <thead class="border-bottom border-dark">
@@ -178,7 +178,7 @@
                                                 <th>Descripcion</th>
                                                 <th>departamento</th>
                                                 <th>Fecha Inicio</th>
-                                                <th>Fecha Final</th>
+                                                <th>Fecha Entrega</th>
                                                 <th>Estado</th>
                                                 <th>salario</th>
                                                 <th>Opciones</th>
@@ -186,7 +186,6 @@
                                         </thead>
                                         <tbody >
 <?php
-//$email = $_SESSION["usuario"]["email"];
 $proyectos = sacarProyectos(); 
 foreach ($proyectos as $valor) {
     echo '                                  <tr>';
@@ -198,9 +197,62 @@ foreach ($proyectos as $valor) {
     echo '                                      <td> ' . $valor['estado'] . '</td>';
     echo '                                      <td> ' . $valor['salario'] . '</td>';
     echo '                                      <td>';
-    echo '                                      <a href="./controlador.php?accion=borrarProyecto&id'.$valor["id"].'"><button type="button" class="btn btn-danger"><i class="zmdi zmdi-close"></i></button></a>';
+    echo '                                      <a href="./controlador.php?accion=borrarProyecto&id='.$valor["id"].'"><button type="button" class="btn btn-danger"><i class="zmdi zmdi-close"></i></button></a>';
+    echo '                                      <a href="./controlador.php?accion=visualizarProyecto&id='.$valor["id"].'"><button type="button" class="btn btn-secondary "><i class="zmdi zmdi-fullscreen"></i></button></a>';
     echo '                                      <button type="button" class="btn btn-success"><i class="zmdi zmdi-edit"></i></button>'; 
     echo '                                      </td>';
+    echo '                                  </tr>';
+}
+?>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div class="col-5 ml-5  bg-light border  rounded">
+                                <h2 class="title-1 m-b-25">Proyectos Activos</h2>
+                                    <table class="table table-borderless">
+                                        <thead class="border-bottom border-dark">
+                                            <tr>
+                                                <th>Nombre</th>
+                                                <th>Departamento</th>
+                                                <th>Fecha Entrega</th>
+                                                <th>Estado</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody >
+<?php
+$proyectos = sacarProyectosActivos(); 
+foreach ($proyectos as $valor) {
+    echo '                                  <tr>';
+    echo '                                      <td> ' . $valor['nombre'] . '</td>';
+    echo '                                      <td> ' . $valor['departamento'] . '</td>';
+    echo '                                      <td> ' . $valor['fechaFin'] . '</td>';
+    echo '                                      <td> ' . $valor['estado'] . '</td>';
+    echo '                                  </tr>';
+}
+?>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div class="col-5 ml-5 bg-light border  rounded">
+                                <h2 class="title-1 m-b-25">Proyectos Terminados</h2>
+                                    <table class="table table-borderless">
+                                        <thead class="border-bottom border-dark">
+                                            <tr>
+                                                <th>Nombre</th>
+                                                <th>Descripcion</th>
+                                                <th>departamento</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody >
+<?php
+$proyectos = sacarProyectosTerminados(); 
+foreach ($proyectos as $valor) {
+    echo '                                  <tr>';
+    echo '                                      <td> ' . $valor['nombre'] . '</td>';
+    echo '                                      <td> ' . $valor['descripcion'] . '</td>';
+    echo '                                      <td> ' . $valor['departamento'] . '</td>';
     echo '                                  </tr>';
 }
 ?>
@@ -215,75 +267,6 @@ foreach ($proyectos as $valor) {
             <!-- END PAGE CONTAINER-->
         </div>
 
-    </div>
-
-    <!-- MODALES -->
-    <div class="modal" tabindex="-1" id="addProducto" aria-labelledby="addProducto">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Añadir Proyecto</h5>
-                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form action="controlador.php" method="POST" id="nuevoProducto">
-                        <div class="mb-3 row">
-                            <label for="nombre" class="col-5 col-form-label">Nombre del proyecto</label>
-                            <div class="col-6">
-                            <input type="text" class="form-control-plaintext" id="nombre" name="nombre" placeholder="Nombre" required>
-                            </div>
-                        </div>
-                        <div class="mb-3 row">
-                            <label for="descripcion" class="col-5 col-form-label">Descripcion del proyecto</label>
-                            <div class="col-6">
-                            <input type="text" class="form-control-plaintext" id="descripcion" name="descripcion" placeholder="Descripcion" required>
-                            </div>
-                        </div>
-                        <div class="mb-3 row">
-                            <label for="departamento" class="col-5 col-form-label">Departamento</label>
-                            <div class="col-6">
-                            <input type="text" class="form-control-plaintext" id="departamento" name="departamento" placeholder="Departamento" required>
-                            </div>
-                        </div>
-                        <div class="mb-3 row">
-                            <label for="salario" class="col-5 col-form-label">Fecha Inicio</label>
-                            <div class="col-6">
-                            <input type="date" class="form-control-plaintext" id="salario" name="fechaInicio" required>
-                            </div>
-                        </div>
-                        <div class="mb-3 row">
-                            <label for="salario" class="col-5 col-form-label">Fecha Final</label>
-                            <div class="col-6">
-                            <input type="date" class="form-control-plaintext" id="salario" name="fechaFin" required>
-                            </div>
-                        </div>
-                        <div class="mb-3 row">
-                            <label for="estado" class="col-5 col-form-label">Estado</label>
-                            <div class="col-6">
-                                <select class="form-select" aria-label="Default select example" name="estado">
-                                    <option selected value="noIniciado">No iniciado</option>
-                                    <option value="activo">Activo</option>
-                                    <option value="finalizado">Finalizado</option>
-                                    <option value="parado">Parado</option>
-                                    <option value="preparando">Preparando</option>
-                                </select>
-                            </div>
-			            </div>
-                        <div class="mb-3 row">
-                            <label for="salario" class="col-5 col-form-label">Salario</label>
-                            <div class="col-6">
-                            <input type="number" class="form-control-plaintext" id="salario" name="salario" placeholder="salario" required>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                            <button type="submit" class="btn btn-primary" name="registroProyecto">Añadir Proyecto</button>
-                </div>
-                    </form>  
-                </div>
-                
-            </div>
-        </div>
     </div>
 
     <!-- Jquery JS-->

@@ -90,6 +90,21 @@ if($_GET) {
             die();
         }
     }
+
+    
+    //CREAMOS LA ACCION DE VISUALIZAR PROYECTOS
+    if (isset($_GET['accion'])) {
+        //COMPROBAMOS QUE LA ACCION ES VISUALIZAR PRODUCTO
+        if (strcmp($_GET['accion'],"visualizarProyecto") == 0) {
+            
+            $projecto = visualizarProyectos($_GET['id']);
+            
+            //echo '<p>entra</p>';
+            //REDIRIGIMOS A INDEX.PHP
+            header("Location: visualizarProyecto.php");
+            die();
+        }
+    }
 }
 
 
@@ -112,7 +127,7 @@ if (isset($_POST["registroProyecto"])) {
     insertarProyecto($nombre, $descripcion, $departamento, $fechaInicio, $fechaFinal, $estado, $salario);
 
     //REDIRIGIR A INDEX.PHP
-    header("Location: index.php");
+    header("Location: proyectos.php");
     die();
 } 
 
