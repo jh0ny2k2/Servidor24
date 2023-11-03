@@ -64,21 +64,6 @@
             <nav class="navbar-mobile">
                 <div class="container-fluid">
                     <ul class="navbar-mobile__list list-unstyled">
-                        <li class="has-sub">
-                            <a class="js-arrow" href="#">
-                                <i class="fas fa-copy"></i>Pages</a>
-                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
-                                <li>
-                                    <a href="login.html">Login</a>
-                                </li>
-                                <li>
-                                    <a href="register.html">Register</a>
-                                </li>
-                                <li>
-                                    <a href="forget-pass.html">Forget Password</a>
-                                </li>
-                            </ul>
-                        </li>
                     </ul>
                 </div>
             </nav>
@@ -99,18 +84,6 @@
                             <a href="index.html"><i class="fas fa-tachometer-alt"></i>Dashboard</a>
                                 
                                     
-                        </li>
-                        <li class="has-sub">
-                            <a class="js-arrow" href="#">
-                                <i class="fas fa-copy"></i>Pages</a>
-                            <ul class="list-unstyled navbar__sub-list js-sub-list">
-                                <li>
-                                    <a href="login.html">Login</a>
-                                </li>
-                                <li>
-                                    <a href="register.html">Registrarse</a>
-                                </li>
-                            </ul>
                         </li>
                     </ul>
                 </nav>
@@ -268,11 +241,11 @@
                             </div>
                         </div>
                         <div class="col-lg-12">
-                                <h2 class="title-1 m-b-25">Buscar Proyectos</h2>
+                            <h2 class="title-1 m-b-25">Buscar Prestamos</h2>
 
-                                <form class="form-header m-b-25" action="" method="POST">
-                                <input class="au-input au-input--xl" type="text" name="search" placeholder="Busca prestamos por estado o por dni" />
-                                <button class="au-btn--submit" type="submit">
+                            <form class="form-header m-b-25" action="controlador.php" method="POST">
+                                <input class="au-input au-input--xl" type="text" name="buscar" id="buscar" placeholder="Buscar prestamos por dni" />
+                                <button class="au-btn--submit" name="buscar" type="submit">
                                     <i class="zmdi zmdi-search"></i>
                                 </button>
                             </form>
@@ -289,20 +262,7 @@
                                             </tr>
                                         </thead>
                                         <tbody> 
-<?php
-$prestamos = sacarPrestamos();
-foreach ($prestamos as $valor){
-    echo '                                  <tr>';
-    echo '                                      <td> ' . $valor["isbn"] . '</td>';
-    echo '                                      <td> ' . $valor["dni"] . '</td>';
-    echo '                                      <td> ' . $valor["fechaInicio"] . '</td>';
-    echo '                                      <td> ' . $valor["fechaFin"] . '</td>';
-    echo '                                      <td> ' . $valor["estado"] . '</td>';
-    echo '                                      <td><a href="./controlador.php?accion=borrarPrestamo&id='.$valor["id"].'"><button type="button" class="btn btn-danger"><i class="zmdi zmdi-close"></i></button></a>';
-    echo '                                      <a href="./controlador.php?accion=editarPrestamo&id='.$valor["id"].'"><button type="button" class="btn btn-success "><i class="zmdi zmdi-edit"></i></button></a></td>';
-    echo '                                  </tr>';
-}
-?>
+<!-- AQUI VA LO DE LA TABLA DE BUSCAR ELEMENTO-->
                                         </tbody>
                                     </table>
                                 </div>
@@ -324,7 +284,7 @@ foreach ($prestamos as $valor){
                                         </thead>
                                         <tbody> 
 <?php
-//$prestamos = sacarPrestamos();
+$prestamos = sacarPrestamos();
 foreach ($prestamos as $valor){
     echo '                                  <tr>';
     echo '                                      <td> ' . $valor["isbn"] . '</td>';

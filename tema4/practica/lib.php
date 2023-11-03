@@ -72,6 +72,40 @@
         return $total ["total"];
     }
 
+    function buscarElementoNombre($dni) {
+        //PRIMERO NOS CONECTAMOS A LA BASE DE DATOS
+        $conexion = ConexionBBDD("PHP2023", "root", "toor");
+
+        //HACEMOS LA CONSULTA PARA LA BASE DE DATOS
+        $consulta = $conexion->prepare ("select * from Prestamos where dni=?");
+        $consulta->bindValue(1, $dni);
+        $consulta -> setFetchMode(PDO::FETCH_ASSOC);
+        $consulta -> execute ();
+
+        //PONEMOS TODOS LOS PRODUCTOS EN LA VARIABLE
+        $prestamos = $consulta->fetchAll();
+        
+        /**
+        foreach ($prestamos as $valor){
+            echo '                                  <tr>';
+            echo '                                      <td> ' . $valor["isbn"] . '</td>';
+            echo '                                      <td> ' . $valor["dni"] . '</td>';
+            echo '                                      <td> ' . $valor["fechaInicio"] . '</td>';
+            echo '                                      <td> ' . $valor["fechaFin"] . '</td>';
+            echo '                                      <td> ' . $valor["estado"] . '</td>';
+            echo '                                      <td><a href="./controlador.php?accion=borrarPrestamo&id='.$valor["id"].'"><button type="button" class="btn btn-danger"><i class="zmdi zmdi-close"></i></button></a>';
+            echo '                                      <a href="./controlador.php?accion=editarPrestamo&id='.$valor["id"].'"><button type="button" class="btn btn-success "><i class="zmdi zmdi-edit"></i></button></a></td>';
+            echo '                                  </tr>';
+        };
+         */
+        
+
+        //CERRAMOS SESION EN LA BASE DE DATOS
+        $conexion = null; 
+
+        return $prestamos;
+    }
+
     function borrarPrestamos($id){
         //PRIMERO NOS CONECTAMOS A LA BASE DE DATOS
         $conexion = ConexionBBDD("PHP2023", "root", "toor");

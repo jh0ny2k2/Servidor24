@@ -181,7 +181,7 @@
                                             <tbody> 
                                             <h2>MODIFICAR PRESTAMO</h2>
 <?php
-//$prestamo = sacarPrestamoId($_GET['id']);
+$prestamo = sacarPrestamoId($_GET['id']);
 echo '                                      <tr><p>ISBN: ' . $prestamo["isbn"] . '</p></tr>';
 echo '                                      <tr><p>DNI: ' . $prestamo["dni"] . '</p></tr>';
 echo '                                      <tr><p>FECHA INICIO: ' . $prestamo["fechaInicio"] . '</p></tr>';

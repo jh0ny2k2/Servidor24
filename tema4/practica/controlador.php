@@ -38,6 +38,18 @@
             header("Location: index.php");
             die();
         }
+
+        if (isset($_POST["buscar"])) {
+            //TRAEMOS LA INFORMACION DEL FORMULARIO BUSQUEDA
+            $buscar = $_POST["buscar"];
+
+            //LLAMAMOS A LA FUNCION PARA SACAR LOS PROYECTOS POR NOMBRE
+            buscarElementoNombre($buscar);
+
+            //REDIRIGIMOS A INDEX.PHP
+            header("Location: index.php");
+            die();
+        }
     }
 
 
@@ -70,10 +82,8 @@
             
 
             if(strcmp($_GET['accion'], "editarPrestamo") == 0) {
-                $prestamo = sacarPrestamoId($_GET['id']);
+                sacarPrestamoId($_GET['id']);
 
-                return $prestamo;
-    
                 //REDIRIGIMOS A INDEX.PHP
                 header("Location: modificar.php");
                 die();
