@@ -3,7 +3,7 @@
     session_start();
 
     //INCLUIMOS EL FICJERO LIB.PHP
-    include_once("lib.php");
+    include_once "lib.php";
 ?>
 
 <!DOCTYPE html>
@@ -185,11 +185,29 @@ $prestamo = sacarPrestamoId($_GET['id']);
 echo '                                      <tr><p>ISBN: ' . $prestamo["isbn"] . '</p></tr>';
 echo '                                      <tr><p>DNI: ' . $prestamo["dni"] . '</p></tr>';
 echo '                                      <tr><p>FECHA INICIO: ' . $prestamo["fechaInicio"] . '</p></tr>';
-echo '                                      <tr><p>FECHA FIN: ' . $prestamo["fechaFin"] . '</p></tr>';
-echo '                                      <tr><p>ESTADO: ' . $prestamo["estado"] . '</p></tr>';
+echo '                                      <form action="controlador.php" method="POST" id="modificarProducto>
+                                                <div class="mb-3 row">
+                                                    <label for="fechaFin" class="col-5 col-form-label">FECHA FIN: </label>
+                                                    <div class="col-6">
+                                                        <input type="date" class="form-control-plaintext" id="fechaFin" name="fechaFin" required>
+                                                    </div>
+                                                </div>
+                                                <div class="mb-3 row">
+                                                    <label for="estado" class="col-5 col-form-label">ESTADO: </label>
+                                                    <div class="col-6">
+                                                        <select name="estado">
+                                                            <option selected value="' . $prestamo["estado"] . '">' . $prestamo["estado"] . '</option>
+                                                            <option value="devuelto">Devuelto</option>
+                                                            <option value="sobrepasado1Mes">Sobrepasado 1 Mes</option>
+                                                            <option value="sobrepasado1Mes">Sobrepasado 1 Mes</option>
+                                                        </select>
+                                                    </div>
+                                                    <button type="submit" class="btn btn-primary" name="modificarPrestamo">Modificar Prestamo</button>
+                                                </div>
+                                            </form>';
 ?>
-                                            </tbody>
-                                        </table>
+                                            </tbody>					
+								        </table>
                                     </div>
                                 </div>
                             </div>

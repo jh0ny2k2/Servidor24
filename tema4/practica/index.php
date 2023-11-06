@@ -81,9 +81,7 @@
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
                         <li class="active has-sub">
-                            <a href="index.html"><i class="fas fa-tachometer-alt"></i>Dashboard</a>
-                                
-                                    
+                            <a href="index.html"><i class="fas fa-tachometer-alt"></i>Dashboard</a>      
                         </li>
                     </ul>
                 </nav>
@@ -103,7 +101,7 @@
                                 <button class="au-btn--submit" type="submit">
                                     <i class="zmdi zmdi-search"></i>
                                 </button>
-                            </form>
+                            </form>    
 <?php
 
     if (isset($_SESSION['usuario'])) {
@@ -173,8 +171,8 @@
                                             </div>
                                             <div class="text">
 <?php
-//$total = contarLibros();
-//echo '                                          <h2> ' . $total . '</h2>';
+$total = contarLibros();
+echo '                                          <h2> ' . $total["cantidadLibros"] . '</h2>';
 ?>
                                                 <span>Libros Totales</span>
                                             </div>
@@ -193,7 +191,10 @@
                                                 <i class="zmdi zmdi-shopping-cart"></i>
                                             </div>
                                             <div class="text">
-                                                <h2>388,688</h2>
+<?php
+$total = contarPrestamosTotales();
+echo '                                          <h2> ' . $total["cantidadPrestamos"] . '</h2>';
+?>
                                                 <span>Prestamos Totales</span>
                                             </div>
                                         </div>
@@ -211,7 +212,10 @@
                                                 <i class="zmdi zmdi-calendar-note"></i>
                                             </div>
                                             <div class="text">
-                                                <h2>1,086</h2>
+<?php
+$total = contarPrestamosCurso();
+echo '                                          <h2> ' . $total["cantidadPrestamosCurso"] . '</h2>';
+?>
                                                 <span>Prestamos en curso</span>
                                             </div>
                                         </div>
@@ -229,8 +233,11 @@
                                                 <i class="zmdi zmdi-money"></i>
                                             </div>
                                             <div class="text">
-                                                <h2>$1,060,386</h2>
-                                                <span>Prestamos Terminados</span>
+<?php
+$total = contarPrestamosFinalizados();
+echo '                                          <h2> ' . $total["cantidadPrestamosFinalizados"] . '</h2>';
+?>
+                                                <span>Prestamos Finalizados</span>
                                             </div>
                                         </div>
                                         <div class="overview-chart">
@@ -262,7 +269,20 @@
                                             </tr>
                                         </thead>
                                         <tbody> 
-<!-- AQUI VA LO DE LA TABLA DE BUSCAR ELEMENTO-->
+<?php
+$prestamos = buscarElementoNombre($_GET["dni"]);
+foreach ($prestamos as $valor){
+        echo '                                  <tr>';
+        echo '                                      <td> ' . $valor["isbn"] . '</td>';
+        echo '                                      <td> ' . $valor["dni"] . '</td>';
+        echo '                                      <td> ' . $valor["fechaInicio"] . '</td>';
+        echo '                                      <td> ' . $valor["fechaFin"] . '</td>';
+        echo '                                      <td> ' . $valor["estado"] . '</td>';
+        echo '                                      <td><a href="./controlador.php?accion=borrarPrestamo&id='.$valor["id"].'"><button type="button" class="btn btn-danger"><i class="zmdi zmdi-close"></i></button></a>';
+        echo '                                      <a href="./modificar.php&id='.$valor["id"].'"><button type="button" class="btn btn-success"><i class="zmdi zmdi-edit"></i></button></a></td>';
+        echo '                                  </tr>';
+}
+?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -293,7 +313,7 @@ foreach ($prestamos as $valor){
     echo '                                      <td> ' . $valor["fechaFin"] . '</td>';
     echo '                                      <td> ' . $valor["estado"] . '</td>';
     echo '                                      <td><a href="./controlador.php?accion=borrarPrestamo&id='.$valor["id"].'"><button type="button" class="btn btn-danger"><i class="zmdi zmdi-close"></i></button></a>';
-    echo '                                      <a href="./controlador.php?accion=editarPrestamo&id='.$valor["id"].'"><button type="button" class="btn btn-success "><i class="zmdi zmdi-edit"></i></button></a></td>';
+    echo '                                      <a href="./modificar.php?id='.$valor["id"].'"><button type="button" class="btn btn-success "><i class="zmdi zmdi-edit"></i></button></a></td>';
     echo '                                  </tr>';
 }
 ?>
@@ -308,10 +328,15 @@ foreach ($prestamos as $valor){
                                         <div class="table-responsive">
                                             <table class="table table-top-countries">
                                                 <tbody>
-                                                    <tr>
-                                                        <td>United States</td>
-                                                        <td class="text-right">$119,366.96</td>
-                                                    </tr>
+<?php
+$top = sacarTopUsuarios();
+foreach ($top as $valor) {
+    echo '                                          <tr>';
+    echo '                                              <td>' . $valor["nombre"] . '</td>';
+    echo '                                              <td>' . $valor["cantidad_prestamos"] . '</td>';
+    echo '                                          </tr>';
+}
+?>
                                                 </tbody>
                                             </table>
                                         </div>

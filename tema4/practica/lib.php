@@ -34,6 +34,37 @@
         return $proyectos;
     }
 
+    function sacarTopUsuarios () {
+        //PRIMERO NOS CONECTAMOS A LA BASE DE DATOS
+        $conexion = ConexionBBDD("PHP2023", "root", "toor");
+
+        //HACEMOS LA CONSULTA PARA LA BASE DE DATOS
+        $consulta = $conexion->prepare ("select Usuarios.nombre, count(Prestamos.id) as cantidad_prestamos from Usuarios join Prestamos on Usuarios.id = Prestamos.id group by Usuarios.nombre order by cantidad_prestamos desc limit 10");
+        $consulta -> setFetchMode(PDO::FETCH_ASSOC);
+        $consulta -> execute ();
+ 
+        //PONEMOS TODOS LOS PRODUCTOS EN LA VARIABLE
+        $prestamos = $consulta->fetchAll();
+ 
+        //CERRAMOS SESION EN LA BASE DE DATOS
+        $conexion = null; 
+ 
+        //RETURNAMOS LA VARIABLE PARA SER PRINTEADA
+        return $prestamos;
+    }
+
+    function modificarProducto($id, $fecha,$estado){
+        //PRIMERO NOS CONECTAMOS A LA BASE DE DATOS
+        $conexion = ConexionBBDD("PHP2023","root","toor");
+
+        //HACEMOS LA CONSULTA PARA LA BASE DE DATOS
+        $consulta = $conexion->prepare ("update Prestamos.fechaFin, Prestamos.estado from productos where id =?");
+        $consulta -> setFetchMode(PDO::FETCH_ASSOC);
+        $consulta -> execute ();
+
+        $conexion = null;
+    }
+
     function sacarPrestamoId($id){
         //PRIMERO NOS CONECTAMOS A LA BASE DE DATOS
         $conexion = ConexionBBDD("PHP2023", "root", "toor");
@@ -45,13 +76,13 @@
         $consulta -> execute ();
 
         //PONEMOS TODOS LOS PRODUCTOS EN LA VARIABLE
-        $proyecto = $consulta->fetch(PDO::FETCH_ASSOC);
-
+        $prestamos = $consulta->fetch(PDO::FETCH_ASSOC);
+        
         //CERRAMOS SESION EN LA BASE DE DATOS
         $conexion = null; 
 
         //RETURNAMOS LA VARIABLE PARA SER PRINTEADA
-        return $proyecto;
+        return $prestamos;
     }
 
     //FUNCION PARA CONSULTAR PRODUCTOS
@@ -60,16 +91,67 @@
         $conexion = ConexionBBDD("PHP2023", "root", "toor");
 
         //HACEMOS LA CONSULTA PARA LA BASE DE DATOS
-        $consulta = $conexion -> prepare ("select count(*) as total from Libros");
+        $consulta = $conexion -> prepare ("select count(id) as cantidadLibros from Libros");
         $consulta -> setFetchMode(PDO::FETCH_ASSOC);
         $consulta -> execute ();
 
-        $total = $consulta;
+        $total = $consulta->fetch(PDO::FETCH_ASSOC);
 
         //CERRAMOS SESION EN LA BASE DE DATOS
         $conexion = null; 
 
-        return $total ["total"];
+        return $total;
+    }
+
+    function contarPrestamosTotales(){
+        //PRIMERO NOS CONECTAMOS A LA BASE DE DATOS
+        $conexion = ConexionBBDD("PHP2023", "root", "toor");
+
+        //HACEMOS LA CONSULTA PARA LA BASE DE DATOS
+        $consulta = $conexion -> prepare ("select count(id) as cantidadPrestamos from Prestamos");
+        $consulta -> setFetchMode(PDO::FETCH_ASSOC);
+        $consulta -> execute ();
+
+        $total = $consulta->fetch(PDO::FETCH_ASSOC);
+
+        //CERRAMOS SESION EN LA BASE DE DATOS
+        $conexion = null; 
+
+        return $total;
+    }
+
+    function contarPrestamosCurso(){
+        //PRIMERO NOS CONECTAMOS A LA BASE DE DATOS
+        $conexion = ConexionBBDD("PHP2023", "root", "toor");
+
+        //HACEMOS LA CONSULTA PARA LA BASE DE DATOS
+        $consulta = $conexion -> prepare ("select count(id) as cantidadPrestamosCurso from Prestamos");
+        $consulta -> setFetchMode(PDO::FETCH_ASSOC);
+        $consulta -> execute ();
+
+        $total = $consulta->fetch(PDO::FETCH_ASSOC);
+
+        //CERRAMOS SESION EN LA BASE DE DATOS
+        $conexion = null; 
+
+        return $total;
+    }
+
+    function contarPrestamosFinalizados(){
+        //PRIMERO NOS CONECTAMOS A LA BASE DE DATOS
+        $conexion = ConexionBBDD("PHP2023", "root", "toor");
+
+        //HACEMOS LA CONSULTA PARA LA BASE DE DATOS
+        $consulta = $conexion -> prepare ("select count(id) as cantidadPrestamosFinalizados from Prestamos");
+        $consulta -> setFetchMode(PDO::FETCH_ASSOC);
+        $consulta -> execute ();
+
+        $total = $consulta->fetch(PDO::FETCH_ASSOC);
+
+        //CERRAMOS SESION EN LA BASE DE DATOS
+        $conexion = null; 
+
+        return $total;
     }
 
     function buscarElementoNombre($dni) {
@@ -77,28 +159,13 @@
         $conexion = ConexionBBDD("PHP2023", "root", "toor");
 
         //HACEMOS LA CONSULTA PARA LA BASE DE DATOS
-        $consulta = $conexion->prepare ("select * from Prestamos where dni=?");
+        $consulta = $conexion->prepare ("select * from Prestamos where estado=?");
         $consulta->bindValue(1, $dni);
         $consulta -> setFetchMode(PDO::FETCH_ASSOC);
         $consulta -> execute ();
 
         //PONEMOS TODOS LOS PRODUCTOS EN LA VARIABLE
-        $prestamos = $consulta->fetchAll();
-        
-        /**
-        foreach ($prestamos as $valor){
-            echo '                                  <tr>';
-            echo '                                      <td> ' . $valor["isbn"] . '</td>';
-            echo '                                      <td> ' . $valor["dni"] . '</td>';
-            echo '                                      <td> ' . $valor["fechaInicio"] . '</td>';
-            echo '                                      <td> ' . $valor["fechaFin"] . '</td>';
-            echo '                                      <td> ' . $valor["estado"] . '</td>';
-            echo '                                      <td><a href="./controlador.php?accion=borrarPrestamo&id='.$valor["id"].'"><button type="button" class="btn btn-danger"><i class="zmdi zmdi-close"></i></button></a>';
-            echo '                                      <a href="./controlador.php?accion=editarPrestamo&id='.$valor["id"].'"><button type="button" class="btn btn-success "><i class="zmdi zmdi-edit"></i></button></a></td>';
-            echo '                                  </tr>';
-        };
-         */
-        
+        $prestamos = $consulta->fetchall();
 
         //CERRAMOS SESION EN LA BASE DE DATOS
         $conexion = null; 

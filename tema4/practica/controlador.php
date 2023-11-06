@@ -39,6 +39,20 @@
             die();
         }
 
+        if (isset($_POST["modificarPrestamo"])) {
+            //TRAEMOS LA INFORMACION DEL FORMULARIO DE REGISTRO DE PRÉSTAMO
+            $fecha = $_POST["estado"];
+            $fechaFin = $_POST["fechaFin"];
+            
+
+            //LLAMAMOS A LA FUNCION PARA MODIFICAR PRESTAMO PRESTAMO
+            modificarPrestamo($fechaFin, $estado);
+
+            //REDIRIGIMOS A INDEX.PHP
+            header("Location: index.php");
+            die();
+        }
+
         if (isset($_POST["buscar"])) {
             //TRAEMOS LA INFORMACION DEL FORMULARIO BUSQUEDA
             $buscar = $_POST["buscar"];
@@ -77,15 +91,6 @@
 
                 //REDIRIGIMOS A INDEX.PHP
                 header("Location: index.php");
-                die();
-            }
-            
-
-            if(strcmp($_GET['accion'], "editarPrestamo") == 0) {
-                sacarPrestamoId($_GET['id']);
-
-                //REDIRIGIMOS A INDEX.PHP
-                header("Location: modificar.php");
                 die();
             }
         }
