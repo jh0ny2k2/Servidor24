@@ -53,7 +53,7 @@
         return $prestamos;
     }
 
-    function modificarProducto($id, $fecha,$estado){
+    function modificarProducto($id,$fecha,$estado){
         //PRIMERO NOS CONECTAMOS A LA BASE DE DATOS
         $conexion = ConexionBBDD("PHP2023","root","toor");
 
