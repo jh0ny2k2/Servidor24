@@ -1,9 +1,12 @@
 <?php
+    
+    namespace RegalosNavidad;
+    use RegalosNavidad\controladores\ControladorUsuarios;
+    use RegalosNavidad\controladores\ControladorRegalos;
+    use RegalosNavidad\controladores\ControladorEnlaces;
+
     //INICIAMOS SESION ANTES QUE NADA
     session_start();
-
-    namespace RegalosNavidad;
-    use RegalosNavidad\controladores\ControladorRegalosNavidad;
 
     //Autocargar las clases --------------------------
     spl_autoload_register(function ($class) {
@@ -21,19 +24,25 @@
            
 
             if (strcmp($_REQUEST['accion'],'mostrarLogIn') == 0) {
-                ControladorRegalosNavidad::MostrarFormularioLogin();
+                ControladorUsuarios::MostrarFormularioLogin();
             }
 
             if (strcmp($_REQUEST['accion'],'recibirFormularioInicioSesion') == 0) {
-                $nombre = $_REQUEST['nombre'];
+                $usuario = $_REQUEST['usuario'];
                 $password = $_REQUEST['password'];
 
-                ControladorRegalosNavidad::inicioSesion($nombre, $password);
+                ControladorUsuarios::inicioSesion($usuario, $password);
+            }
+
+            //VER REGALOS TOTALES DE LA PERSONA
+            if (strcmp($_REQUEST['accion'],'mostrarTodos') == 0) {
+                $idUsuario = $_REQUEST['id'];
+                ControladorRegalos::mostrarRegalos($idResultado);
             }
 
         } else {
             //Mostrar inicio
-            ControladorRegalosNavidad::mostrarInicio();
+            ControladorRegalos::mostrarInicio();
         }
     }
 

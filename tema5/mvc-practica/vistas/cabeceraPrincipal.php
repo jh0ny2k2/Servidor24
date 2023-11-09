@@ -160,7 +160,24 @@
     <header class="d-flex justify-content-center py-3">
       <ul class="nav nav-pills">
         <li class="nav-item"><a href="index.php?accion='mostrarTodos'" class="nav-link active bg-danger" aria-current="page">Listas</a></li>
-        
       </ul>
+<?php
+      if (isset($_SESSION['usuario'])) {
+        //SI ESTA LA SESION INICIADA PRINTEAMOS EL BOTON DEL PERFIL
+        echo '<div class="header-button">';
+        echo '  <div class="position-absolute top-0 end-0 p-3">
+                    <button class="btn bg-warning" name="accion" value="cerrarSesion">Cerrar Sesión</button>
+                    <div class="account-wrap">
+                      <div class="account-item clearfix js-item-menu">
+                        <div class="content">
+                          <p class="js-acc-btn mt-2" href="#"> Logueado con: ' . $_SESSION["usuario"]["usuario"] .'</p>
+                        </div>
+                      </div>
+                    </div>
+                </div>';
+                
+      }
+?>
+      
     </header>
   </div>

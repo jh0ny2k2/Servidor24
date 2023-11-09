@@ -2,10 +2,13 @@
 
     namespace RegalosNavidad\modelos;
 
-    class Enlaces {
+
+    class ModeloRegalo {
+
+
+
         
     }
-
 
 
 ?>

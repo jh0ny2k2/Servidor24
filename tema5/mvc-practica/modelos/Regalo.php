@@ -2,7 +2,7 @@
 
     namespace RegalosNavidad\modelos;
 
-    class Regalos {
+    class Regalo {
         private $id;
         private $nombre;
         private $destinatario;
