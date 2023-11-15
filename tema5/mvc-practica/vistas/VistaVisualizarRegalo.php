@@ -1,0 +1,48 @@
+<?php
+
+    namespace RegalosNavidad\vistas;
+
+    class VistaVisualizarRegalo{
+
+        public static function render($resultado, $id) {
+
+            include "cabeceraPrincipal.php";
+
+            foreach ($resultado as $valor){
+
+?>
+            <div class="container">
+                <h1>VISUALIZAR PRODUCTO</h1>
+                <hr>
+
+                <h4>Nombre: <span class="text-danger ms-3"><?= $valor->getNombre() ?></span></h4>
+                <br>
+                <h4>Destinatario: <span class="text-danger ms-3"><?= $valor->getDestinatario() ?></span></h4>
+                <br>
+                <h4>Precio: <span class="text-danger ms-3"><?= $valor->getPrecio() ?></span></h4>
+                <br>
+                <h4>Estado: <span class="text-danger ms-3"><?= $valor->getEstado() ?></span></h4>
+                <br>
+                <h4>Fecha: <span class="text-danger ms-3"><?= $valor->getAnio() ?></span></h4>
+                
+            
+
+<?php
+                $usuario = unserialize($_SESSION['usuario']);
+                echo '  <form action="index.php">
+                            <input type="hidden" name="id" value=" '. $usuario -> getId() .'
+                            <a href="index.php?accion=mostrarTodos"><button type="submit" class="btn btn-danger mt-3"><- Volver Atrás</button></a>
+                        </form>';
+
+            echo '</div>';
+            }
+            
+
+
+            // include "PiePrincipal.php";
+        }
+
+    }
+
+
+?>

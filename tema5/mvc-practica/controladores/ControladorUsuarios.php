@@ -1,6 +1,8 @@
 <?php
 
     namespace RegalosNavidad\controladores;
+
+    use RegalosNavidad\modelos\ModeloRegalo;
     use RegalosNavidad\vistas\VistaInicio;
     use RegalosNavidad\vistas\VistaLogIn;
     use RegalosNavidad\vistas\VistaResultados;
@@ -14,6 +16,7 @@
             VistaInicio::render();
         }
         
+        
         // FUNCION PARA MOSTRAR EL FORMULARIO DE LOGIN
         public static function MostrarFormularioLogin(){
             
@@ -22,24 +25,33 @@
 
         // FUNCION PARA INICIAR SESION 
         public static function inicioSesion($usuario, $password){
-
             //COMPROBAMOS SI LA CONTRASEÑA Y EL EMAIL SON CORRECTOS
-            ModeloUsuario::iniciarSesion($usuario,$password);
-            
-            //PROCESAMOS LA INFORMACION DEL FORMULARIO DE LOGIN"
-            $_SESSION['usuario'] = array("usuario" => $usuario);
+            $user = ModeloUsuario::iniciarSesion($usuario,$password);
 
-            // RENDERIZAMOS LA VISTA DE RESULTADOS
-            VistaResultados::render();
-            die();
-            // } else {
-                // RENDERIZAMOS LA VISTA DE INICIO
-                // VistaLogIn::render();
-                // die();
-        
+            if ($user == false){
+                //ControladorUsuarios:MostrarFormularioLogin();
+            } else {
+                //PROCESAMOS LA INFORMACION DEL FORMULARIO DE LOGIN"
+                $_SESSION['usuario'] = serialize($user);
 
-            
+                $usu = unserialize($_SESSION['usuario']);
+                // RENDERIZAMOS LA VISTA DE RESULTADOS
+                $producto = ModeloRegalo::mostrarRegalos($usu -> getId());
+                VistaResultados::render($producto);
+                die();      
+            }
+                
         }
+
+        public static function cerrarSesion() {
+
+            //DESTROZAMOS LA SESION 
+            session_destroy();
+
+            //REDIRIGIMOS LA VISTA INICIO
+            VistaInicio::render();    
+        }
+        
     }
         
         

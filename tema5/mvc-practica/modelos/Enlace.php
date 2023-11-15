@@ -4,10 +4,14 @@
 
     class Enlace {
         private $id;
+        private $tienda;
+        private $precio;
         private $links;
         
-        public function __construct($id, $links) {
+        public function __construct($id, $tienda, $precio, $links) {
             $this -> id = $id;
+            $this -> tienda = $tienda;
+            $this -> precio = $precio;
             $this -> links = $links; 
         }
 
@@ -49,6 +53,46 @@
         public function setLinks($links)
         {
                 $this->links = $links;
+
+                return $this;
+        }
+
+        /**
+         * Get the value of tienda
+         */ 
+        public function getTienda()
+        {
+                return $this->tienda;
+        }
+
+        /**
+         * Set the value of tienda
+         *
+         * @return  self
+         */ 
+        public function setTienda($tienda)
+        {
+                $this->tienda = $tienda;
+
+                return $this;
+        }
+
+        /**
+         * Get the value of precio
+         */ 
+        public function getPrecio()
+        {
+                return $this->precio;
+        }
+
+        /**
+         * Set the value of precio
+         *
+         * @return  self
+         */ 
+        public function setPrecio($precio)
+        {
+                $this->precio = $precio;
 
                 return $this;
         }

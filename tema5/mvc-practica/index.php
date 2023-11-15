@@ -4,6 +4,7 @@
     use RegalosNavidad\controladores\ControladorUsuarios;
     use RegalosNavidad\controladores\ControladorRegalos;
     use RegalosNavidad\controladores\ControladorEnlaces;
+    use RegalosNavidad\modelos\ModeloUsuario;
 
     //INICIAMOS SESION ANTES QUE NADA
     session_start();
@@ -19,25 +20,90 @@
 
 
     if (isset($_REQUEST)) {
-        //Tratamiento de botones, forms, ...
+
         if (isset($_REQUEST['accion'])) {
            
-
+            //METODO REQUEST PARA MOSTRAR EL FORMULARIO DE LOGIN
             if (strcmp($_REQUEST['accion'],'mostrarLogIn') == 0) {
                 ControladorUsuarios::MostrarFormularioLogin();
             }
 
+            //METODO REQUEST PARA CERRAR LA SESION
+            if (strcmp($_REQUEST['accion'], 'cerrarSesion') == 0) {
+                ControladorUsuarios::cerrarSesion();
+            }
+
+            //METODO REQUEST PARA INGRESAR AL USUARIO
             if (strcmp($_REQUEST['accion'],'recibirFormularioInicioSesion') == 0) {
                 $usuario = $_REQUEST['usuario'];
                 $password = $_REQUEST['password'];
+                // $id = $usuario -> getId;
 
-                ControladorUsuarios::inicioSesion($usuario, $password);
+                ControladorUsuarios::inicioSesion($usuario, $password, );
             }
 
-            //VER REGALOS TOTALES DE LA PERSONA
-            if (strcmp($_REQUEST['accion'],'mostrarTodos') == 0) {
-                $idUsuario = $_REQUEST['id'];
-                ControladorRegalos::mostrarRegalos($idResultado);
+            //METODO REQUEST PARA MOSTRAR FORMULARIO DE INGRESO DE REGALOS
+            if (strcmp($_REQUEST['accion'], 'añadirRegalo') == 0) {
+                ControladorRegalos::verAñadirRegalo();
+            }
+
+            //METODO REQUEST PARA AÑADIR EL REGALO
+            if (strcmp($_REQUEST['accion'], 'enviarAñadirRegalo') == 0) {
+                $nombre = $_REQUEST['nombre'];
+                $destinatario = $_REQUEST['destinatario'];
+                $precio = $_REQUEST['precio'];
+                $estado = $_REQUEST['estado'];
+                $anio = $_REQUEST['anio'];
+                $id = $_REQUEST['id'];
+
+                ControladorRegalos::añadirRegalo($nombre, $destinatario, $precio, $estado, $anio,$id);
+            }
+
+            if (strcmp($_REQUEST['accion'], 'mostrarTodos') == 0) {
+                $id = $_REQUEST['id'];
+                
+                ControladorRegalos::verTodos($id);
+            }
+
+            
+
+            //METODO REQUEST PARA ELIMINAR UN REGALO
+            if (strcmp($_REQUEST['accion'], 'eliminarRegalo') == 0) {
+                $id = $_REQUEST['id'];
+                ControladorRegalos::eliminarRegalo($id);
+            }
+
+            //METODO REQUEST PARA VISUALIZAR REGALO
+            if (strcmp($_REQUEST['accion'], 'visualizarRegalo') == 0) {
+                $id = $_REQUEST['id'];
+                ControladorRegalos::verVisualizarRegalo($id);
+            }
+
+            //METODO REQUEST PARA MODIFICAR REGALO
+            if (strcmp($_REQUEST['accion'], 'modificarRegalo') == 0) {
+                $id = $_REQUEST['id'];
+                ControladorRegalos::verFormModificarRegalo($id);
+            }
+
+            //METODO REQUEST PARA AÑADIR EL REGALO
+            if (strcmp($_REQUEST['accion'], 'enviarModificarRegalo') == 0) {
+                $nombre = $_REQUEST['nombre'];
+                $destinatario = $_REQUEST['destinatario'];
+                $precio = $_REQUEST['precio']; 
+                $estado = $_REQUEST['estado'];
+                $anio = $_REQUEST['anio'];
+                $id = $_REQUEST['id'];
+                $idRegalo = $_REQUEST['idRegalo'];
+
+                ControladorRegalos::modificarRegalo($nombre, $destinatario, $precio, $estado, $anio, $id, $idRegalo);
+            }
+            
+            
+
+            if (strcmp($_REQUEST['accion'], 'verEnlaces') == 0) {
+                $id = $_REQUEST['id'];
+                
+                ControladorEnlaces::verEnlaces($id);
             }
 
         } else {

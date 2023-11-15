@@ -1,3 +1,10 @@
+<?php
+
+  namespace RegalosNavidad\vistas;
+  use RegalosNavidad\modelos\Usuario;
+
+?>
+
 <!doctype html>
 <html lang="en" data-bs-theme="auto">
   <head><script src="/docs/5.3/assets/js/color-modes.js"></script>
@@ -11,11 +18,11 @@
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/headers/">
 
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
 
-<link href="/docs/5.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="/docs/5.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
     <!-- Favicons -->
 <link rel="apple-touch-icon" href="/docs/5.3/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
@@ -162,15 +169,19 @@
         <li class="nav-item"><a href="index.php?accion='mostrarTodos'" class="nav-link active bg-danger" aria-current="page">Listas</a></li>
       </ul>
 <?php
+
+$usuario = unserialize($_SESSION['usuario']);
+
+
       if (isset($_SESSION['usuario'])) {
         //SI ESTA LA SESION INICIADA PRINTEAMOS EL BOTON DEL PERFIL
         echo '<div class="header-button">';
         echo '  <div class="position-absolute top-0 end-0 p-3">
-                    <button class="btn bg-warning" name="accion" value="cerrarSesion">Cerrar Sesión</button>
+                  <a href="index.php?accion=cerrarSesion"><button type="submit" class="btn bg-warning" name="accion" value="cerrarSesion">Cerrar Sesión</button></a>
                     <div class="account-wrap">
                       <div class="account-item clearfix js-item-menu">
                         <div class="content">
-                          <p class="js-acc-btn mt-2" href="#"> Logueado con: ' . $_SESSION["usuario"]["usuario"] .'</p>
+                          <p class="js-acc-btn mt-2"> Logueado con: ' . $usuario -> getUsuario() .'</p>
                         </div>
                       </div>
                     </div>
