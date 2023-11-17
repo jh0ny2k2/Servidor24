@@ -19,7 +19,7 @@
                                 <th class="col text-center">Destinatario</th>
                                 <th class="col text-center">Precio</th>
                                 <th class="col text-center">Estado</th>
-                                <th class="col text-center"><a class="text-dark text-decoration-none" href="index.php?accion=mostrarTodosAnioDesc">Año <i class="zmdi zmdi-caret-up"></i></a></th>
+                                <th class="col text-center"><a class="text-dark text-decoration-none" href="index.php?accion=mostrarLogIn">Año</a></th>
                                 <th class="col text-center">Enlaces</th>
                                 <th class="col text-center">Opciones</th>
                             </tr>';

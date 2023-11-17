@@ -4,7 +4,6 @@
     use RegalosNavidad\controladores\ControladorUsuarios;
     use RegalosNavidad\controladores\ControladorRegalos;
     use RegalosNavidad\controladores\ControladorEnlaces;
-    use RegalosNavidad\modelos\ModeloUsuario;
 
     //INICIAMOS SESION ANTES QUE NADA
     session_start();
@@ -114,6 +113,11 @@
             if (strcmp($_REQUEST['accion'], 'mostrarTodosAnio') == 0) {
                 ControladorRegalos::mostrarTodosAnio();
             }
+
+            //METODO PARA MOOSTRAR PRODUCTOS POR AÑO
+            if (strcmp($_REQUEST['accion'], 'mostrarTodosAnioDesc') == 0) {
+                ControladorRegalos::mostrarTodosAnioDesc();
+            }
             
             
             /**
@@ -131,6 +135,22 @@
                 $id = $_REQUEST['id'];
                 
                 ControladorEnlaces::borrarEnlace($id);
+            }
+            
+            if (strcmp($_REQUEST['accion'], 'añadirEnlace') == 0) {
+                $id = $_REQUEST['id'];
+                
+                ControladorEnlaces::añadirEnlace($id);
+            }
+
+            //METODO REQUEST PARA AÑADIR ENLACE
+            if (strcmp($_REQUEST['accion'], 'enviarAñadirEnlace') == 0) {
+                $tienda = $_REQUEST['tienda'];
+                $precio = $_REQUEST['precio'];
+                $link = $_REQUEST['link'];
+                $id = $_REQUEST['id'];
+
+                ControladorEnlaces::enviarAñadirEnlace($tienda, $precio, $link, $id);
             }
 
         } else {

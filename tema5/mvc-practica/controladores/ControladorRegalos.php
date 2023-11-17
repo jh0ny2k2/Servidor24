@@ -101,6 +101,17 @@
             die();
         }
 
+        public static function mostrarTodosAnioDesc() {
+
+            $usu = unserialize($_SESSION['usuario']);
+
+            $productos = ModeloRegalo::mostrarRegalosAnioDesc($usu -> getId());
+
+            // RENDERIZAMOS LA VISTA DE RESULTADOS
+            VistaResultadosAnio::render($productos);
+            die();
+        }
+
         
     }
 

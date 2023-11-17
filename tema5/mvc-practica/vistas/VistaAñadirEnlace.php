@@ -5,7 +5,7 @@
 
     class VistaAñadirEnlace{
 
-        public static function render() {
+        public static function render($id) {
 
             include "cabeceraPrincipal.php";
 ?>
@@ -27,10 +27,13 @@
                         <label for="link">Link:</label><br>
                         <input class="col-6 mt-3" type="text" name="link" id="link" required />
                     </div>
+                    <?php
+                    echo '<input type="hidden" name="id" value=" ' . $id . ' ">';
+                    ?>
                     <br/>
                     <div class="col-6 text-end mt-3">
                         <button type="reset" class="btn btn-danger">Resetear Formularios</button>
-                        <button type="submit" class="btn btn-danger" name="accion" value="enviarAñadirRegalo">Añadir Enlace</button>
+                        <button type="submit" class="btn btn-danger" name="accion" value="enviarAñadirEnlace">Añadir Enlace</button>
                     </div>
                 </form>
             </div>

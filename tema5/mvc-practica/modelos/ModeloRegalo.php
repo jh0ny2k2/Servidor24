@@ -97,6 +97,22 @@
 
             return $regalos;
         }
+
+        public static function mostrarRegalosAnioDesc($id) {
+            $conexionObject = new conexionBBDD();
+            $conexion = $conexionObject->getConexion();
+
+            $consulta = $conexion->prepare("SELECT * FROM Regalos where idUsuario = ? ORDER BY anio DESC");
+            $consulta -> bindValue(1,$id);
+            $consulta -> setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'RegalosNavidad\modelos\Regalo'); //Nombre de la clase
+            $consulta -> execute();
+
+            $regalos = $consulta->fetchAll();
+
+            $conexionObject -> cerrarConexion();
+
+            return $regalos;
+        }
     }
 
 ?>

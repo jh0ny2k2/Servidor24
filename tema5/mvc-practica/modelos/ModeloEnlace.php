@@ -33,6 +33,20 @@
             $conexionObject -> cerrarConexion();
         }
 
+        public static function añadirEnlace($tienda, $precio, $link, $id) {
+            $conexionObject = new conexionBBDD();
+            $conexion = $conexionObject->getConexion();
+
+            $consulta = $conexion->prepare("INSERT INTO Enlaces (tienda,precio,links,idRegalo) values (?,?,?,?)");
+            $consulta -> bindValue(1,$tienda);
+            $consulta -> bindValue(2,$precio);
+            $consulta -> bindValue(3,$link);
+            $consulta -> bindValue(4,$id);
+            $consulta -> execute();
+
+            $conexionObject -> cerrarConexion();
+        }
+
         
     }
 
