@@ -7,12 +7,14 @@
         private $tienda;
         private $precio;
         private $links;
+        private $idRegalo;
         
-        public function __construct($id, $tienda, $precio, $links) {
+        public function __construct($id="", $tienda="", $precio="", $links="", $idRegalo="") {
             $this -> id = $id;
             $this -> tienda = $tienda;
             $this -> precio = $precio;
             $this -> links = $links; 
+            $this -> idRegalo = $idRegalo;
         }
 
         
@@ -93,6 +95,26 @@
         public function setPrecio($precio)
         {
                 $this->precio = $precio;
+
+                return $this;
+        }
+
+        /**
+         * Get the value of idRegalo
+         */ 
+        public function getIdRegalo()
+        {
+                return $this->idRegalo;
+        }
+
+        /**
+         * Set the value of idRegalo
+         *
+         * @return  self
+         */ 
+        public function setIdRegalo($idRegalo)
+        {
+                $this->idRegalo = $idRegalo;
 
                 return $this;
         }

@@ -19,6 +19,15 @@
 
             VistaEnlace::render($enlace);
         }
+
+        public static function borrarEnlace($id) {
+
+            ModeloEnlace::borrarEnlace($id);
+
+            $enlace = ModeloEnlace::verEnlaces($id);
+
+            VistaEnlace::render($enlace);
+        }
     
         
     }

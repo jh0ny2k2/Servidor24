@@ -16,7 +16,6 @@
             VistaInicio::render();
         }
         
-        
         // FUNCION PARA MOSTRAR EL FORMULARIO DE LOGIN
         public static function MostrarFormularioLogin(){
             
@@ -35,8 +34,9 @@
                 $_SESSION['usuario'] = serialize($user);
 
                 $usu = unserialize($_SESSION['usuario']);
-                // RENDERIZAMOS LA VISTA DE RESULTADOS
                 $producto = ModeloRegalo::mostrarRegalos($usu -> getId());
+
+                // RENDERIZAMOS LA VISTA DE RESULTADOS
                 VistaResultados::render($producto);
                 die();      
             }

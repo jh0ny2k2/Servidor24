@@ -5,13 +5,13 @@
 
     class ModeloRegalo {
         
-        public static function mostrarRegalos($idUsuario){
+        public static function mostrarRegalos($id){
 
             $conexionObject = new conexionBBDD();
             $conexion = $conexionObject->getConexion();
 
-            $consulta = $conexion->prepare("SELECT * FROM Regalos where Regalos.idUsuario = ?");
-            $consulta -> bindValue(1,$idUsuario);
+            $consulta = $conexion->prepare("SELECT * FROM Regalos where idUsuario = ?");
+            $consulta -> bindValue(1,$id);
             $consulta -> setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'RegalosNavidad\modelos\Regalo'); //Nombre de la clase
             $consulta -> execute();
 
@@ -80,7 +80,22 @@
             $consulta -> execute();
 
             $conexionObject -> cerrarConexion();
+        }
 
+        public static function mostrarRegalosAnio($id) {
+            $conexionObject = new conexionBBDD();
+            $conexion = $conexionObject->getConexion();
+
+            $consulta = $conexion->prepare("SELECT * FROM Regalos where idUsuario = ? ORDER BY anio ");
+            $consulta -> bindValue(1,$id);
+            $consulta -> setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'RegalosNavidad\modelos\Regalo'); //Nombre de la clase
+            $consulta -> execute();
+
+            $regalos = $consulta->fetchAll();
+
+            $conexionObject -> cerrarConexion();
+
+            return $regalos;
         }
     }
 

@@ -1,0 +1,35 @@
+[ 
+{
+    "nombre" : "league of legends",
+    "plataformas" : [ 
+        "PC",
+        "PS4"
+    ],
+    "precio" : 60,
+    "nota" : 9,
+    "descripcion": "juego del lol" 
+},
+
+{
+    "nombre" : "F1 23",
+    "plataformas" : [ 
+        "PC",
+        "PS4",
+        "XBOX"
+    ],
+    "precio" : 50,
+    "nota" : 10,
+    "descripcion": "juego del F1" 
+},
+{
+    "nombre" : "farming simulator",
+    "plataformas" : [ 
+        "PC",
+        "PS4",
+        "XBOX"
+    ],
+    "precio" : 20,
+    "nota" : 5,
+    "descripcion": "juego de granjas" 
+}
+]

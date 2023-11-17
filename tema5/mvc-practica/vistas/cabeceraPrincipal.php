@@ -1,7 +1,6 @@
 <?php
 
   namespace RegalosNavidad\vistas;
-  use RegalosNavidad\modelos\Usuario;
 
 ?>
 
@@ -166,7 +165,7 @@
   <div class="container">
     <header class="d-flex justify-content-center py-3">
       <ul class="nav nav-pills">
-        <li class="nav-item"><a href="index.php?accion='mostrarTodos'" class="nav-link active bg-danger" aria-current="page">Listas</a></li>
+        <li class="nav-item"><a href="index.php?accion=mostrarLogIn" class="nav-link active bg-danger" aria-current="page">Listas</a></li>
       </ul>
 <?php
 

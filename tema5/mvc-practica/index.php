@@ -22,10 +22,20 @@
     if (isset($_REQUEST)) {
 
         if (isset($_REQUEST['accion'])) {
-           
+            
+            /**
+             * METODOS DE USUARIOS
+             */
+
+            
             //METODO REQUEST PARA MOSTRAR EL FORMULARIO DE LOGIN
             if (strcmp($_REQUEST['accion'],'mostrarLogIn') == 0) {
-                ControladorUsuarios::MostrarFormularioLogin();
+
+                if (isset($_SESSION["usuario"])) {
+                    ControladorRegalos::verTodos();
+                }  else {
+                    ControladorUsuarios::MostrarFormularioLogin();
+                }
             }
 
             //METODO REQUEST PARA CERRAR LA SESION
@@ -37,10 +47,14 @@
             if (strcmp($_REQUEST['accion'],'recibirFormularioInicioSesion') == 0) {
                 $usuario = $_REQUEST['usuario'];
                 $password = $_REQUEST['password'];
-                // $id = $usuario -> getId;
 
-                ControladorUsuarios::inicioSesion($usuario, $password, );
+                ControladorUsuarios::inicioSesion($usuario, $password);
             }
+
+
+            /**
+             * METODOS PARA REGALOS
+             */
 
             //METODO REQUEST PARA MOSTRAR FORMULARIO DE INGRESO DE REGALOS
             if (strcmp($_REQUEST['accion'], 'añadirRegalo') == 0) {
@@ -64,8 +78,6 @@
                 
                 ControladorRegalos::verTodos($id);
             }
-
-            
 
             //METODO REQUEST PARA ELIMINAR UN REGALO
             if (strcmp($_REQUEST['accion'], 'eliminarRegalo') == 0) {
@@ -97,13 +109,28 @@
 
                 ControladorRegalos::modificarRegalo($nombre, $destinatario, $precio, $estado, $anio, $id, $idRegalo);
             }
-            
-            
 
+            //METODO PARA MOOSTRAR PRODUCTOS POR AÑO
+            if (strcmp($_REQUEST['accion'], 'mostrarTodosAnio') == 0) {
+                ControladorRegalos::mostrarTodosAnio();
+            }
+            
+            
+            /**
+             * METODOS PARA ENLACES
+             */
+
+            //METODO PARA VER LOS ENLACES
             if (strcmp($_REQUEST['accion'], 'verEnlaces') == 0) {
                 $id = $_REQUEST['id'];
                 
                 ControladorEnlaces::verEnlaces($id);
+            }
+            
+            if (strcmp($_REQUEST['accion'], 'eliminarEnlace') == 0) {
+                $id = $_REQUEST['id'];
+                
+                ControladorEnlaces::borrarEnlace($id);
             }
 
         } else {

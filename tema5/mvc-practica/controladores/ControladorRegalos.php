@@ -7,6 +7,7 @@
     use RegalosNavidad\vistas\VistaModificarRegalo;
     use RegalosNavidad\vistas\VistaResultados;
     use RegalosNavidad\vistas\VistaVisualizarRegalo;
+    use RegalosNavidad\vistas\VistaResultadosAnio;
 
     class ControladorRegalos {
         // FUNCION PARA MOSTRAR EL INICO DE LA APLICACION
@@ -31,12 +32,15 @@
             $usu = unserialize($_SESSION['usuario']);
             // RENDERIZAMOS LA VISTA DE RESULTADOS
             $productos = ModeloRegalo::mostrarRegalos($usu -> getId());
+
             VistaResultados::render($productos);
             die();
         }
 
-        public static function verTodos($id){
-            $regalos = ModeloRegalo::mostrarRegalos($id);
+        public static function verTodos(){
+
+            $usu = unserialize($_SESSION['usuario']);
+            $regalos = ModeloRegalo::mostrarRegalos($usu -> getId());
 
             VistaResultados::render($regalos);
         }
@@ -78,13 +82,24 @@
             ModeloRegalo::eliminarRegalo($id);
 
             $usu = unserialize($_SESSION['usuario']);
-            // RENDERIZAMOS LA VISTA DE RESULTADOS
+
             $productos = ModeloRegalo::mostrarRegalos($usu -> getId());
+
+            // RENDERIZAMOS LA VISTA DE RESULTADOS
             VistaResultados::render($productos);
             die();
         }
 
-        
+        public static function mostrarTodosAnio() {
+
+            $usu = unserialize($_SESSION['usuario']);
+
+            $productos = ModeloRegalo::mostrarRegalosAnio($usu -> getId());
+
+            // RENDERIZAMOS LA VISTA DE RESULTADOS
+            VistaResultadosAnio::render($productos);
+            die();
+        }
 
         
     }

@@ -9,8 +9,9 @@
         private $precio;
         private $estado;
         private $anio;
+        private $idUsuario;
 
-        public function __construct($id="", $nombre="", $destinatario="", $precio="", $estado="", $anio="") {
+        public function __construct($id="", $nombre="", $destinatario="", $precio="", $estado="", $anio="", $idUsuario="") {
             
             $this -> id = $id;
             $this -> nombre = $nombre;
@@ -138,6 +139,26 @@
         public function setAnio($anio)
         {
                 $this->anio = $anio;
+
+                return $this;
+        }
+
+        /**
+         * Get the value of idUsuario
+         */ 
+        public function getIdUsuario()
+        {
+                return $this->idUsuario;
+        }
+
+        /**
+         * Set the value of idUsuario
+         *
+         * @return  self
+         */ 
+        public function setIdUsuario($idUsuario)
+        {
+                $this->idUsuario = $idUsuario;
 
                 return $this;
         }

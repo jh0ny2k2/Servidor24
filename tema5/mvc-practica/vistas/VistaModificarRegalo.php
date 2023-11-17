@@ -15,7 +15,8 @@
 ?>
                    <div class="container">
                    <hr>
-                   <h2 class="text-danger mt-5 mb-4">MODIFICAR REGALO</h2>
+                   <a href="index.php?accion=mostrarLogIn"><button type="submit" class="btn btn-danger mt-2"><- Volver Atrás</button></a>
+                   <h2 class="text-danger mt-3 mb-4">MODIFICAR REGALO</h2>
                    <form action="index.php" method="post" class="mt-2">
                    
                            <div>
@@ -53,11 +54,9 @@
                            echo '<input type="hidden" name="idRegalo" value="'.$id.'">';
                            
 ?>
-                            
-                           <div class="col-6 text-end mt-3">
-                               <button type="reset" class="btn btn-danger">Resetear Formularios</button>
-                               <button type="submit" class="btn btn-danger" name="accion" value="enviarModificarRegalo">Enviar</button>
-                           </div>
+                            <div class="col-6 text-end mt-3">
+                                <button type="submit" class="btn btn-danger" name="accion" value="enviarModificarRegalo">Enviar</button>
+                            </div>
                            
                        </form>
                    </div>

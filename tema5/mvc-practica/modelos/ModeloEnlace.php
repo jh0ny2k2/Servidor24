@@ -22,6 +22,17 @@
             return $regalos;
         }
 
+        public static function borrarEnlace($id) {
+            $conexionObject = new conexionBBDD();
+            $conexion = $conexionObject->getConexion();
+
+            $consulta = $conexion->prepare("DELETE FROM Enlaces WHERE id = ?");
+            $consulta -> bindValue(1,$id);
+            $consulta -> execute();
+
+            $conexionObject -> cerrarConexion();
+        }
+
         
     }
 

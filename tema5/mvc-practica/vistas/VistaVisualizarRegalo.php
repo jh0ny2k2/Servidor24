@@ -4,7 +4,7 @@
 
     class VistaVisualizarRegalo{
 
-        public static function render($resultado, $id) {
+        public static function render($resultado) {
 
             include "cabeceraPrincipal.php";
 
@@ -24,17 +24,12 @@
                 <h4>Estado: <span class="text-danger ms-3"><?= $valor->getEstado() ?></span></h4>
                 <br>
                 <h4>Fecha: <span class="text-danger ms-3"><?= $valor->getAnio() ?></span></h4>
+                <a href="index.php?accion=mostrarLogIn"><button type="submit" class="btn btn-danger mt-3"><- Volver Atrás</button></a>
                 
             
 
 <?php
-                $usuario = unserialize($_SESSION['usuario']);
-                echo '  <form action="index.php">
-                            <input type="hidden" name="id" value=" '. $usuario -> getId() .'
-                            <a href="index.php?accion=mostrarTodos"><button type="submit" class="btn btn-danger mt-3"><- Volver Atrás</button></a>
-                        </form>';
 
-            echo '</div>';
             }
             
 

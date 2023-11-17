@@ -2,7 +2,7 @@
 
     namespace RegalosNavidad\vistas;
 
-    class VistaResultados {
+    class VistaResultadosAnio {
 
         public static function render($regalos) {
             
@@ -19,7 +19,7 @@
                                 <th class="col text-center">Destinatario</th>
                                 <th class="col text-center">Precio</th>
                                 <th class="col text-center">Estado</th>
-                                <th class="col text-center"><a class="text-dark text-decoration-none" href="index.php?accion=mostrarTodosAnio">Año <i class="zmdi zmdi-caret-down"></i></a></th>
+                                <th class="col text-center"><a class="text-dark text-decoration-none" href="index.php?accion=mostrarLogIn">Año <i class="zmdi zmdi-caret-down"></i></a></th>
                                 <th class="col text-center">Enlaces</th>
                                 <th class="col text-center">Opciones</th>
                             </tr>';
