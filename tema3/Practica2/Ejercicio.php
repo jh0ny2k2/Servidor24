@@ -59,7 +59,7 @@
     echo '  <a href="controlador.php?accion=sacarCarta">
                 <img src="./cartas/dorso-rojo.svg" width="200" alt="">  
             </a>';
-   
+
     
 ?>
 
