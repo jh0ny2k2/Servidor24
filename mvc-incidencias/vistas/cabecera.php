@@ -52,15 +52,14 @@
 
     <div class="px-4 py-5 my-5 text-center">
         <img class="d-block mx-auto mb-4" src="./vistas/imgs/deepracer.png" alt="" width="100" >
-        <h1 class="display-5 fw-bold">Deep Racer Almería</h1>
+        <h1 class="display-5 fw-bold">Incidencias Movistar</h1>
         <div class="col-lg-6 mx-auto">
-        <p class="lead mb-4">Aquí vamos a mostrar nuestros resultados en la liga DeepRacer</p>
+        <p class="lead mb-4">Aquí vamos a mostrar las incidencias de movistar</p>
         <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-            <button type="button" class="btn btn-primary btn-lg px-4 gap-3">Mi liga</button>
+            <a href="index.php?accion=mostrarIncidencias"><button type="button" class="btn btn-primary btn-lg px-4 gap-3">Incidencias</button></a>
         </div>
         </div>
     </div>
-
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
