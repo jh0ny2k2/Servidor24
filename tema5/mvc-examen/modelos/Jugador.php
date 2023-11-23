@@ -1,9 +1,9 @@
 <?php
 
-    namespace Padalea\modelos;
-
+    namespace Examen\modelos;
 
     class Jugador {
+        private $id;
         private $email;
         private $password;
         private $nombre;
@@ -11,8 +11,8 @@
         private $nivel;
         private $edad;
 
-
-        public function __construct($email ="", $password="", $nombre="", $apodo="", $nivel="", $edad="") {
+        public function __construct($id="", $email="", $password="", $nombre="", $apodo="", $nivel="", $edad="") {
+            $this -> id = $id;
             $this -> email = $email;
             $this -> password = $password;
             $this -> nombre = $nombre;
@@ -20,6 +20,8 @@
             $this -> nivel = $nivel;
             $this -> edad = $edad;
         }
+
+        
 
         /**
          * Get the value of email
@@ -140,7 +142,26 @@
 
                 return $this;
         }
-    }
 
+        /**
+         * Get the value of id
+         */ 
+        public function getId()
+        {
+                return $this->id;
+        }
+
+        /**
+         * Set the value of id
+         *
+         * @return  self
+         */ 
+        public function setId($id)
+        {
+                $this->id = $id;
+
+                return $this;
+        }
+    }
 
 ?>

@@ -48,13 +48,13 @@
   <body>
     
     <main>
-    <h1 class="visually-hidden">Inscripciones Partidas Padel</h1>
+    <h1 class="visually-hidden">dd</h1>
 
     <div class="px-4 py-5 my-5 text-center">
-        <img class="d-block mx-auto mb-4" src="./vistas/imgs/padel.png" alt="" width="400" >
-        <h1 class="display-5 fw-bold">Padel Jaroso</h1>
+        <img class="d-block mx-auto mb-4" src="./vistas/imgs/deepracer.png" alt="" width="100" >
+        <h1 class="display-5 fw-bold">Examen 22/23</h1>
         <div class="col-lg-6 mx-auto">
-        <p class="lead mb-4">Menú interactivo para inscripcion de Partidas</p>
+        <p class="lead mb-4">Aquí vamos a mostrar las partidas de padel disponibles para jugar</p>
         <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
         <a href="index.php?accion=mostrarLogIn"><button type="button" class="btn btn-primary btn-lg px-4 gap-3">Iniciar sesión</button></a>
         </div>

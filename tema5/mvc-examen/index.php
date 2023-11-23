@@ -1,7 +1,6 @@
 <?php
-    namespace Padalea;
-    use Padalea\controladores\ControladorJugadores;
-    use Padalea\controladores\ControladorPartidas;
+    namespace Examen;
+    use Examen\controladores\ControladorJugadores;
 
     //Autocargar las clases --------------------------
     spl_autoload_register(function ($class) {
@@ -14,15 +13,19 @@
 
 
     if (isset($_REQUEST)) {
+        //Tratamiento de botones, forms, ...
+        if (isset($_REQUEST["accion"])) {
+            
 
-        //METODO REQUEST PARA MOSTRAR EL FORMULARIO DE LOGIN
         if (strcmp($_REQUEST['accion'],'mostrarLogIn') == 0) {
+            ControladorJugadores::mostrarFormLogIn();
+        }
 
-            if (isset($_SESSION["usuario"])) {
-                ControladorPartidas::verTodos();
-            }  else {
-                ControladorJugadores::MostrarFormularioLogin();
-            }
+        if (strcmp($_REQUEST['accion'],'recibirFormularioInicioSesion') == 0) {
+            $usuario = $_REQUEST['email'];
+            $password = $_REQUEST['password'];
+
+            ControladorJugadores::recibirFormLogIn($usuario, $password);
         }
 
 
@@ -30,7 +33,7 @@
             //Mostrar inicio
             ControladorJugadores::mostrarInicio();
         }
-    
+    }
 
 
 

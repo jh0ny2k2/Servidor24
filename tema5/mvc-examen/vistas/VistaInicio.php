@@ -1,6 +1,6 @@
 <?php
 
-    namespace Padalea\vistas;
+    namespace Examen\vistas;
     
     class VistaInicio  {
 
