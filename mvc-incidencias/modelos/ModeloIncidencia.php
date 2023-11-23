@@ -87,9 +87,9 @@
             $conexionObject = new conexionBBDD();
             $conexion = $conexionObject->getConexion();
 
-            $consulta = $conexion->prepare("SELECT * FROM Clientes WHERE ciudad = ? OR nombre LIKE '%$incidencia%'");
+            $consulta = $conexion->prepare("SELECT * FROM Incidencias WHERE ciudad = ? OR estado LIKE '%$incidencia%'");
             $consulta -> bindValue(1,$incidencia);
-            $consulta -> setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Incidencias\modelos\Cliente'); //Nombre de la clase
+            $consulta -> setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Incidencias\modelos\Incidencias'); //Nombre de la clase
             $consulta -> execute();
 
             $regalos = $consulta->fetchAll();
