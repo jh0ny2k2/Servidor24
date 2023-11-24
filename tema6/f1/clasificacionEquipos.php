@@ -46,26 +46,25 @@
                     
 <?php
 
-                    $uri = "https://ergast.com/api/f1/2023/20/driverStandings";       
+                    $uri = "https://ergast.com/api/f1/2023/20/driverStandings.json";       
                     $reqPrefs['http']['method'] = 'GET';
-                    $reqPrefs['http']['header'] = 'X-Auth-Token: ';
+                    $reqPrefs['http']['header'] = ' ';
                     $stream_context = stream_context_create($reqPrefs);
                     $resultado = file_get_contents($uri, false, $stream_context);
                     
                     //Pasar de json a objeto php y recorrer los resultados
                     if ($resultado != false) {
                         $respPHP = json_decode($resultado);
-                        
-                        if (isset($respPHP->data)) {
-                            foreach($respPHP->data as $piloto) {
-                                echo '<tr>';
-                                echo '<td>{$piloto->position}</td>';
-                                echo '<td>{$piloto->Construct->name}</td>';
-                                echo '<td>{$piloto->Driver->givenName}</td>';
-                                echo '<td>{$piloto->points}</td>';
-                                echo '</tr>';
-                            }
+                         
+                        foreach($respPHP->MRData->StandingsTable->StandingsLists[0]->DriverStandings as $piloto) {
+                            echo '<tr>';
+                            echo '<td>'. $piloto->positionText .'</td>';
+                            echo '<td>'. $piloto->Constructors[0]->constructorId  .'</td>';
+                            echo '<td>'. $piloto->Driver->driverId .'</td>';
+                            echo '<td>'. $piloto->points .'</td>';
+                            echo '</tr>';
                         }
+                        
                     }
                     
                     
