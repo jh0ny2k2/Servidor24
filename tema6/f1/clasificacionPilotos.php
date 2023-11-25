@@ -28,42 +28,46 @@
           </nav>
     </header>
     <main>
-        <img src="images/verstappen-temporada-2023-123822-1024x576.jpg" alt="" style="width: 100%;">
+        <img src="images/LH_16x9.png" alt="" style="width: 100%;">
 
         <div class="container">
-            <h1>CLASIFICACION EQUIPOS</h1>
+            <h1>CLASIFICACION PILOTOS</h1>
             <br><br>
             <table>
                 <thead>
                     <tr>
                         <th>Posicion</th>
                         <th>Escuderia</th>
+                        <th>Piloto</th>
                         <th>Puntos</th>
                     </tr>
                 </thead>
                 <tbody>
-                    
-<?php
-                    $uri = "https://ergast.com/api/f1/2023/20/constructorStandings.json";       
-                    $reqPrefs['http']['method'] = 'GET';
-                    $reqPrefs['http']['header'] = ' ';
-                    $stream_context = stream_context_create($reqPrefs);
-                    $resultado = file_get_contents($uri, false, $stream_context);
-                    
-                    //Pasar de json a objeto php y recorrer los resultados
-                    if ($resultado != false) {
-                        $respPHP = json_decode($resultado);
-                         
-                        foreach($respPHP->MRData->StandingsTable->StandingsLists[0]->ConstructorStandings as $piloto) {
-                            echo '<tr>';
-                            echo '<td>'. $piloto->position .'</td>';
-                            echo '<td>'. $piloto->Constructor->name  .'</td>';
-                            echo '<td>'. $piloto->points .'</td>';
-                            echo '</tr>';
-                        }
-                    }          
-?>
+                <?php
 
+$uri = "https://ergast.com/api/f1/2023/20/driverStandings.json";       
+$reqPrefs['http']['method'] = 'GET';
+$reqPrefs['http']['header'] = ' ';
+$stream_context = stream_context_create($reqPrefs);
+$resultado = file_get_contents($uri, false, $stream_context);
+
+//Pasar de json a objeto php y recorrer los resultados
+if ($resultado != false) {
+    $respPHP = json_decode($resultado);
+     
+    foreach($respPHP->MRData->StandingsTable->StandingsLists[0]->DriverStandings as $piloto) {
+        echo '<tr>';
+        echo '<td>'. $piloto->positionText .'</td>';
+        echo '<td>'. $piloto->Constructors[0]->name  .'</td>';
+        echo '<td>'. $piloto->Driver->driverId .'</td>';
+        echo '<td>'. $piloto->points .'</td>';
+        echo '</tr>';
+    }
+    
+}
+
+
+?>
                 </tbody>
             </table>
             

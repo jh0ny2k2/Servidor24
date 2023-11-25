@@ -11,19 +11,19 @@
     <header>
         <nav>
             <div class="wrapper">
-              <div class="logo"><a href="index.html">FORMULA 1</a></div>
+              <div class="logo"><a href="index.php">FORMULA 1</a></div>
               <!--<input type="radio" name="slider" id="menu-btn">
               <input type="radio" name="slider" id="close-btn">-->
               <ul class="nav-links">
                 <label for="close-btn" class="btn close-btn"><i class="fas fa-times"></i></label>
-                <li><a href="pilotos.html">Pilotos</a></li>
-                <li><a href="equipos.html">Equipos</a></li>
-                <li><a href="circuitos.html">Circuitos</a></li>
+                <li><a href="pilotos.php">Pilotos</a></li>
+                <li><a href="equipos.php">Equipos</a></li>
+                <li><a href="circuitos.php">Circuitos</a></li>
                 <li>
                   <a href="#" class="desktop-item">Clasificación</a>
                   <ul class="drop-menu">
-                    <li><a href="clasificacionPilotos.html">Pilotos</a></li>
-                    <li><a href="clasificacionEquipos.html">Equipos</a></li>
+                    <li><a href="clasificacionPilotos.php">Pilotos</a></li>
+                    <li><a href="clasificacionEquipos.php">Equipos</a></li>
                   </ul>
                 </li>
             </div>
@@ -37,6 +37,22 @@
           <div class="equipos">
             <section class="row" style=" border-top: 2px solid rgb(106, 0, 255);
             border-right: 2px solid rgb(106, 0, 255);">
+<?php
+                    $uri = "https://ergast.com/api/f1/2023/constructors.json";       
+                    $reqPrefs['http']['method'] = 'GET';
+                    $reqPrefs['http']['header'] = ' ';
+                    $stream_context = stream_context_create($reqPrefs);
+                    $resultado = file_get_contents($uri, false, $stream_context);
+                    
+                    //Pasar de json a objeto php y recorrer los resultados
+                    if ($resultado != false) {
+                        $respPHP = json_decode($resultado);
+                         
+                        foreach($respPHP->MRData->ConstructorTable as $piloto) {
+                            echo '<h3>'. $piloto->Constructors->name .'</h3>';
+                        }
+                    }          
+?>
               <div class="rowColumn">
                 <img src="images/logos/redbull.png" style="margin-left: 80%;" width="100" alt="">
               </div>

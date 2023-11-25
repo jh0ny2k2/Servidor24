@@ -12,19 +12,19 @@
     <header>
         <nav>
             <div class="wrapper">
-              <div class="logo"><a href="index.html">FORMULA 1</a></div>
+              <div class="logo"><a href="index.php">FORMULA 1</a></div>
               <!--<input type="radio" name="slider" id="menu-btn">
               <input type="radio" name="slider" id="close-btn">-->
               <ul class="nav-links">
                 <label for="close-btn" class="btn close-btn"><i class="fas fa-times"></i></label>
-                <li><a href="pilotos.html">Pilotos</a></li>
-                <li><a href="equipos.html">Equipos</a></li>
-                <li><a href="circuitos.html">Circuitos</a></li>
+                <li><a href="pilotos.php">Pilotos</a></li>
+                <li><a href="equipos.php">Equipos</a></li>
+                <li><a href="circuitos.php">Circuitos</a></li>
                 <li>
                   <a href="#" class="desktop-item">Clasificación</a>
                   <ul class="drop-menu">
-                    <li><a href="clasificacionPilotos.html">Pilotos</a></li>
-                    <li><a href="clasificacionEquipos.html">Equipos</a></li>
+                    <li><a href="clasificacionPilotos.php">Pilotos</a></li>
+                    <li><a href="clasificacionEquipos.php">Equipos</a></li>
                   </ul>
                 </li>
             </div>
