@@ -35,6 +35,8 @@ span{
 }
 
 
+
+
 .rowfilas {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -378,4 +380,5 @@ table td {
   border-radius: 4px;
   cursor: pointer;
 }
+
 

@@ -35,213 +35,28 @@
         <div class="container">
           <h1>EQUIPOS</h1>
           <div class="equipos">
-            <section class="row" style=" border-top: 2px solid rgb(106, 0, 255);
-            border-right: 2px solid rgb(106, 0, 255);">
+            
 <?php
                     $uri = "https://ergast.com/api/f1/2023/constructors.json";       
                     $reqPrefs['http']['method'] = 'GET';
-                    $reqPrefs['http']['header'] = ' ';
+                    $reqPrefs['http']['header'] = '';
                     $stream_context = stream_context_create($reqPrefs);
                     $resultado = file_get_contents($uri, false, $stream_context);
                     
                     //Pasar de json a objeto php y recorrer los resultados
                     if ($resultado != false) {
                         $respPHP = json_decode($resultado);
-                         
-                        foreach($respPHP->MRData->ConstructorTable as $piloto) {
-                            echo '<h3>'. $piloto->Constructors->name .'</h3>';
+
+                        foreach($respPHP->MRData->ConstructorTable->Constructors as $piloto) {
+                            echo '<section class="row" style=" border-top: 2px solid rgb(106, 0, 255);
+                            border-right: 2px solid rgb(106, 0, 255);">';
+                            echo '<img src="images/logos/'. $piloto->constructorId .'.png" style="margin-left: 0%;" width="100" alt=""><br>';
+                            echo '<h2>' . $piloto->name . '</h2>';         
+                            echo '<br><img src="images/coches/'. $piloto->constructorId .'.png" width="500" alt="">';
+                            echo '</section>';
                         }
                     }          
 ?>
-              <div class="rowColumn">
-                <img src="images/logos/redbull.png" style="margin-left: 80%;" width="100" alt="">
-              </div>
-              <h3>Pilotos</h3>
-              <div class="rowfilas">
-                <div>
-                  <p>Max Verstappen</p>
-                  <img src="images/pilotos/max.png" width="100" alt="">
-                </div>
-                <div>
-                  <p>Checho Perez</p>
-                  <img src="images/pilotos/checo.png" width="100" alt="">
-                </div>
-              </div>
-              <img src="images/coches/redbullc.png" width="500" alt="">
-            </section>
-
-            <section class="row" style=" border-top: 2px solid rgb(121, 121, 121);
-            border-right: 2px solid rgb(121, 121, 121);">
-              <div class="rowColumn">
-                <img src="images/logos/mercedes.png" style="margin-left: 80%;" width="100" alt="">
-              </div>
-              <h3>Pilotos</h3>
-              <div class="rowfilas">
-                <div>
-                  <p>Lewis Hamilton</p>
-                  <img src="images/pilotos/lewis.png" width="100" alt="">
-                </div>
-                <div>
-                  <p>George Russell</p>
-                  <img src="images/pilotos/russel.png" width="100" alt="">
-                </div>
-              </div>
-              <img src="images/coches/mercedesc.png" width="500" alt="">
-            </section>
-
-            <section class="row" style=" border-top: 2px solid rgb(255, 0, 0);
-            border-right: 2px solid rgb(255, 0, 0);">
-              <div class="rowColumn">
-                <img src="images/logos/ferrari.png" style="margin-left: 80%;" width="100" alt="">
-              </div>
-              <h3>Pilotos</h3>
-              <div class="rowfilas">
-                <div>
-                  <p>Carlos Sainz</p>
-                  <img src="images/pilotos/chili.png" width="100" alt="">
-                </div>
-                <div>
-                  <p>Charles Leclerc</p>
-                  <img src="images/pilotos/leclerc.png" width="100" alt="">
-                </div>
-              </div>
-              <img src="images/coches/ferraric.png" width="500" alt="">
-            </section>
-
-            <section class="row" style=" border-top: 2px solid rgb(255, 140, 0);
-            border-right: 2px solid rgb(255, 140, 0);">
-              <div class="rowColumn">
-                <img src="images/logos/mclare.png" style="margin-left: 80%;" width="100" alt="">
-              </div>
-              <h3>Pilotos</h3>
-              <div class="rowfilas">
-                <div>
-                  <p>Lando Norris</p>
-                  <img src="images/pilotos/lando.png" width="100" alt="">
-                </div>
-                <div>
-                  <p>Oscar Piastri</p>
-                  <img src="images/pilotos/piastri.png" width="100" alt="">
-                </div>
-              </div>
-              <img src="images/coches/mclarenc.png" width="500" alt="">
-            </section>
-
-            <section class="row" style=" border-top: 2px solid rgb(2, 108, 0);
-            border-right: 2px solid rgb(2, 108, 0);">
-              <div class="rowColumn">
-                <img src="images/logos/aston.png" style="margin-left: 80%;" width="100" alt="">
-              </div>
-              <h3>Pilotos</h3>
-              <div class="rowfilas">
-                <div>
-                  <p>Fernando Alonso</p>
-                  <img src="images/pilotos/nano.png" width="100" alt="">
-                </div>
-                <div>
-                  <p>Lance Stroll</p>
-                  <img src="images/pilotos/lance.png" width="100" alt="">
-                </div>
-              </div>
-              <img src="images/coches/astonc.png" width="500" alt="">
-            </section>
-            
-            <section class="row" style=" border-top: 2px solid rgb(38, 0, 255);
-            border-right: 2px solid rgb(38, 0, 255);">
-              <div class="rowColumn">
-                <img src="images/logos/alpine.png" style="margin-left: 80%;" width="100" alt="">
-              </div>
-              <h3>Pilotos</h3>
-              <div class="rowfilas">
-                <div>
-                  <p>Esteban Ocon</p>
-                  <img src="images/pilotos/ocon.png" width="100" alt="">
-                </div>
-                <div>
-                  <p>Pierre Gasly</p>
-                  <img src="images/pilotos/pierre.png" width="100" alt="">
-                </div>
-              </div>
-              <img src="images/coches/alpinec.png" width="500" alt="">
-            </section>
-
-            <section class="row" style=" border-top: 2px solid rgb(106, 0, 255);
-            border-right: 2px solid rgb(106, 0, 255);">
-              <div class="rowColumn">
-                <img src="images/logos/williams.png" style="margin-left: 80%;" width="100" alt="">
-              </div>
-              <h3>Pilotos</h3>
-              <div class="rowfilas">
-                <div>
-                  <p>Alexander Albon</p>
-                  <img src="images/pilotos/albon.png" width="100" alt="">
-                </div>
-                <div>
-                  <p>Logan Sargeant</p>
-                  <img src="images/pilotos/sargeant.png" width="100" alt="">
-                </div>
-              </div>
-              <img src="images/coches/williamsc.png" width="500" alt="">
-            </section>
-
-            <section class="row" style=" border-top: 2px solid rgb(20, 0, 48);
-            border-right: 2px solid rgb(20, 0, 48);">
-              <div class="rowColumn">
-                <img src="images/logos/alpha.png" style="margin-left: 80%;" width="100" alt="">
-              </div>
-              <h3>Pilotos</h3>
-              <div class="rowfilas">
-                <div>
-                  <p>Yuki Tsunoda</p>
-                  <img src="images/pilotos/yuki.png" width="100" alt="">
-                </div>
-                <div>
-                  <p>Daniel Ricciardo</p>
-                  <img src="images/pilotos/ricciardo.png" width="100" alt="">
-                </div>
-              </div>
-              <img src="images/coches/alphac.png" width="500" alt="">
-            </section>
-
-            <section class="row" style=" border-top: 2px solid rgb(117, 2, 0);
-            border-right: 2px solid rgb(117, 2, 0);">
-              <div class="rowColumn">
-                <img src="images/logos/alfa.png" style="margin-left: 80%;" width="100" alt="">
-              </div>
-              <h3>Pilotos</h3>
-              <div class="rowfilas">
-                <div>
-                  <p>Valteri Bottas</p>
-                  <img src="images/pilotos/bottas.png" width="100" alt="">
-                </div>
-                <div>
-                  <p>Zhou Guanyu</p>
-                  <img src="images/pilotos/zhou.png" width="100" alt="">
-                </div>
-              </div>
-              <img src="images/coches/alfac.png" width="500" alt="">
-            </section>
-
-            <section class="row" style=" border-top: 2px solid rgb(0, 0, 0);
-            border-right: 2px solid rgb(0, 0, 0);">
-              <div class="rowColumn">
-                <img src="images/logos/hass.png" style="margin-left: 80%;" width="100" alt="">
-              </div>
-              <h3>Pilotos</h3>
-              <div class="rowfilas">
-                <div>
-                  <p>Nico Hulkenberg</p>
-                  <img src="images/pilotos/hulk.png" width="100" alt="">
-                </div>
-                <div>
-                  <p>Kevin Magnussen</p>
-                  <img src="images/pilotos/magnussen.png" width="100" alt="">
-                </div>
-              </div>
-              <img src="images/coches/haasc.png" width="500" alt="">
-            </section>
-  
-            
           </div>
         </section>
           </div>

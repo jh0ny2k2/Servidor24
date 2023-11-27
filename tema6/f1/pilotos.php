@@ -35,268 +35,31 @@
         <div class="container">
           <h1>Pilotos</h1>
           <div class="equipos">
-            <section class="row" style=" border-top: 2px solid rgb(106, 0, 255);
-            border-right: 2px solid rgb(106, 0, 255); background-image: url(images/logos/redbull.png);" >
-              
-              
-              <img src="images/pilotos/max.png" width="300" alt="">
-              <h2>Max Verstappen</h2>
-              <div class="piloto">
-                <div><p>Títulos Mundiales: <span>3</span></p></div>
-                <div><p>Victorias: <span>53</span></p></div>
-                <div><p>Poles: <span>31</span></p></div>
-                <div><p>Podios: <span>97</span></p></div>
-              </div>
-            </section>
-            <section class="row" style=" border-top: 2px solid rgb(106, 0, 255);
-            border-right: 2px solid rgb(106, 0, 255); background-image: url(images/logos/redbull.png);" >
-              
-              
-              <img src="images/pilotos/checo.png" width="300" alt="">
-              <h2>Sergio Perez</h2>
-              <div class="piloto">
-                <div><p>Títulos Mundiales: <span>0</span></p></div>
-                <div><p>Victorias: <span>6</span></p></div>
-                <div><p>Poles: <span>3</span></p></div>
-                <div><p>Podios: <span>34</span></p></div>
-              </div>
-            </section>
-            <section class="row" style=" border-top: 2px solid rgb(121, 121, 121);
-            border-right: 2px solid rgb(121, 121, 121); background-image: url(images/logos/mercedes.png);" >
-              
-              
-              <img src="images/pilotos/lewis.png" width="300" alt="">
-              <h2>Lewis Hamilton</h2>
-              <div class="piloto">
-                <div><p>Títulos Mundiales: <span>7</span></p></div>
-                <div><p>Victorias: <span>103</span></p></div>
-                <div><p>Poles: <span>104</span></p></div>
-                <div><p>Podios: <span>197</span></p></div>
-              </div>
-            </section>
-            <section class="row" style=" border-top: 2px solid rgb(121, 121, 121);
-            border-right: 2px solid rgb(121, 121, 121); background-image: url(images/logos/mercedes.png);" >
-              
-              
-              <img src="images/pilotos/russel.png" width="300" alt="">
-              <h2>George Russell</h2>
-              <div class="piloto">
-                <div><p>Títulos Mundiales: <span>0</span></p></div>
-                <div><p>Victorias: <span>1</span></p></div>
-                <div><p>Poles: <span>1</span></p></div>
-                <div><p>Podios: <span>10</span></p></div>
-              </div>
-            </section>
-            <section class="row" style=" border-top: 2px solid rgb(255, 0, 0);
-            border-right: 2px solid rgb(255, 0, 0); background-image: url(images/logos/ferrari.png);" >
-              
-              
-              <img src="images/pilotos/chili.png" width="300" alt="">
-              <h2>Carlos Sainz</h2>
-              <div class="piloto">
-                <div><p>Títulos Mundiales: <span>0</span></p></div>
-                <div><p>Victorias: <span>2</span></p></div>
-                <div><p>Poles: <span>5</span></p></div>
-                <div><p>Podios: <span>18</span></p></div>
-              </div>
-            </section>
-            <section class="row" style=" border-top: 2px solid rgb(255, 0, 0);
-            border-right: 2px solid rgb(255, 0, 0); background-image: url(images/logos/ferrari.png);" >
-              
-              
-              <img src="images/pilotos/leclerc.png" width="300" alt="">
-              <h2>Charles Leclerc</h2>
-              <div class="piloto">
-                <div><p>Títulos Mundiales: <span>0</span></p></div>
-                <div><p>Victorias: <span>5</span></p></div>
-                <div><p>Poles: <span>23</span></p></div>
-                <div><p>Podios: <span>29</span></p></div>
-              </div>
-            </section>
-            <section class="row" style=" border-top: 2px solid rgb(255, 140, 0);
-            border-right: 2px solid rgb(255, 140, 0); background-image: url(images/logos/mclare.png);" >
-              
-              
-              <img src="images/pilotos/lando.png" width="300" alt="">
-              <h2>Lando Norris</h2>
-              <div class="piloto">
-                <div><p>Títulos Mundiales: <span>3</span></p></div>
-                <div><p>Victorias: <span>53</span></p></div>
-                <div><p>Poles: <span>31</span></p></div>
-                <div><p>Podios: <span>97</span></p></div>
-              </div>
-            </section>
-            <section class="row" style=" border-top: 2px solid rgb(255, 140, 0);
-            border-right: 2px solid rgb(255, 140, 0); background-image: url(images/logos/mclare.png);" >
-              
-              
-              <img src="images/pilotos/piastri.png" width="300" alt="">
-              <h2>Oscar Piastri</h2>
-              <div class="piloto">
-                <div><p>Títulos Mundiales: <span>3</span></p></div>
-                <div><p>Victorias: <span>53</span></p></div>
-                <div><p>Poles: <span>31</span></p></div>
-                <div><p>Podios: <span>97</span></p></div>
-              </div>
-            </section>
-            <section class="row" style=" border-top: 2px solid rgb(2, 108, 0);
-            border-right: 2px solid rgb(2, 108, 0); background-image: url(images/logos/aston.png);" >
-              
-              
-              <img src="images/pilotos/nano.png" width="300" alt="">
-              <h2>Fernando Alonso</h2>
-              <div class="piloto">
-                <div><p>Títulos Mundiales: <span>3</span></p></div>
-                <div><p>Victorias: <span>53</span></p></div>
-                <div><p>Poles: <span>31</span></p></div>
-                <div><p>Podios: <span>97</span></p></div>
-              </div>
-            </section>
-            <section class="row" style=" border-top: 2px solid rgb(2, 108, 0);
-            border-right: 2px solid rgb(2, 108, 0); background-image: url(images/logos/aston.png);" >
-              
-              
-              <img src="images/pilotos/lance.png" width="300" alt="">
-              <h2>Lance Stroll</h2>
-              <div class="piloto">
-                <div><p>Títulos Mundiales: <span>3</span></p></div>
-                <div><p>Victorias: <span>53</span></p></div>
-                <div><p>Poles: <span>31</span></p></div>
-                <div><p>Podios: <span>97</span></p></div>
-              </div>
-            </section>
-            <section class="row" style=" border-top: 2px solid rgb(106, 0, 255);
-            border-right: 2px solid rgb(106, 0, 255); background-image: url(images/logos/alpine.png);" >
-              
-              
-              <img src="images/pilotos/ocon.png" width="300" alt="">
-              <h2>Esteban Ocon</h2>
-              <div class="piloto">
-                <div><p>Títulos Mundiales: <span>3</span></p></div>
-                <div><p>Victorias: <span>53</span></p></div>
-                <div><p>Poles: <span>31</span></p></div>
-                <div><p>Podios: <span>97</span></p></div>
-              </div>
-            </section>
-            <section class="row" style=" border-top: 2px solid rgb(106, 0, 255);
-            border-right: 2px solid rgb(106, 0, 255); background-image: url(images/logos/alpine.png);" >
-              
-              
-              <img src="images/pilotos/pierre.png" width="300" alt="">
-              <h2>Pierre Gasly</h2>
-              <div class="piloto">
-                <div><p>Títulos Mundiales: <span>3</span></p></div>
-                <div><p>Victorias: <span>53</span></p></div>
-                <div><p>Poles: <span>31</span></p></div>
-                <div><p>Podios: <span>97</span></p></div>
-              </div>
-            </section>
-            <section class="row" style=" border-top: 2px solid rgb(106, 0, 255);
-            border-right: 2px solid rgb(106, 0, 255); background-image: url(images/logos/williams.png);" >
-              
-              
-              <img src="images/pilotos/albon.png" width="300" alt="">
-              <h2>Alexander Albon</h2>
-              <div class="piloto">
-                <div><p>Títulos Mundiales: <span>3</span></p></div>
-                <div><p>Victorias: <span>53</span></p></div>
-                <div><p>Poles: <span>31</span></p></div>
-                <div><p>Podios: <span>97</span></p></div>
-              </div>
-            </section>
-            <section class="row" style=" border-top: 2px solid rgb(106, 0, 255);
-            border-right: 2px solid rgb(106, 0, 255); background-image: url(images/logos/williams.png);" >
-              
-              
-              <img src="images/pilotos/sargeant.png" width="300" alt="">
-              <h2>Logan Sargeant</h2>
-              <div class="piloto">
-                <div><p>Títulos Mundiales: <span>3</span></p></div>
-                <div><p>Victorias: <span>53</span></p></div>
-                <div><p>Poles: <span>31</span></p></div>
-                <div><p>Podios: <span>97</span></p></div>
-              </div>
-            </section>
-            <section class="row" style=" border-top: 2px solid rgb(106, 0, 255);
-            border-right: 2px solid rgb(106, 0, 255); background-image: url(images/logos/alpha.png);" >
-              
-              
-              <img src="images/pilotos/yuki.png" width="300" alt="">
-              <h2>Yuki Tsunoda</h2>
-              <div class="piloto">
-                <div><p>Títulos Mundiales: <span>3</span></p></div>
-                <div><p>Victorias: <span>53</span></p></div>
-                <div><p>Poles: <span>31</span></p></div>
-                <div><p>Podios: <span>97</span></p></div>
-              </div>
-            </section>
-            <section class="row" style=" border-top: 2px solid rgb(106, 0, 255);
-            border-right: 2px solid rgb(106, 0, 255); background-image: url(images/logos/alpha.png);" >
-              
-              
-              <img src="images/pilotos/ricciardo.png" width="300" alt="">
-              <h2>Daniel Ricciardo</h2>
-              <div class="piloto">
-                <div><p>Títulos Mundiales: <span>3</span></p></div>
-                <div><p>Victorias: <span>53</span></p></div>
-                <div><p>Poles: <span>31</span></p></div>
-                <div><p>Podios: <span>97</span></p></div>
-              </div>
-            </section>
-            <section class="row" style=" border-top: 2px solid rgb(106, 0, 255);
-            border-right: 2px solid rgb(106, 0, 255); background-image: url(images/logos/alfa.png);" >
-              
-              
-              <img src="images/pilotos/bottas.png" width="300" alt="">
-              <h2>Valteri Bottas</h2>
-              <div class="piloto">
-                <div><p>Títulos Mundiales: <span>3</span></p></div>
-                <div><p>Victorias: <span>53</span></p></div>
-                <div><p>Poles: <span>31</span></p></div>
-                <div><p>Podios: <span>97</span></p></div>
-              </div>
-            </section>
-            <section class="row" style=" border-top: 2px solid rgb(106, 0, 255);
-            border-right: 2px solid rgb(106, 0, 255); background-image: url(images/logos/alfa.png);" >
-              
-              
-              <img src="images/pilotos/zhou.png" width="300" alt="">
-              <h2>Zhou Guanyu</h2>
-              <div class="piloto">
-                <div><p>Títulos Mundiales: <span>3</span></p></div>
-                <div><p>Victorias: <span>53</span></p></div>
-                <div><p>Poles: <span>31</span></p></div>
-                <div><p>Podios: <span>97</span></p></div>
-              </div>
-            </section>
-            <section class="row" style=" border-top: 2px solid rgb(106, 0, 255);
-            border-right: 2px solid rgb(106, 0, 255); background-image: url(images/logos/hass.png);" >
-              
-              
-              <img src="images/pilotos/magnussen.png" width="300" alt="">
-              <h2>Kevin Magnussen</h2>
-              <div class="piloto">
-                <div><p>Títulos Mundiales: <span>3</span></p></div>
-                <div><p>Victorias: <span>53</span></p></div>
-                <div><p>Poles: <span>31</span></p></div>
-                <div><p>Podios: <span>97</span></p></div>
-              </div>
-            </section>
-            <section class="row" style=" border-top: 2px solid rgb(106, 0, 255);
-            border-right: 2px solid rgb(106, 0, 255); background-image: url(images/logos/hass.png);" >
-              
-              
-              <img src="images/pilotos/hulk.png" width="300" alt="">
-              <h2>Nico Hulkenberg</h2>
-              <div class="piloto">
-                <div><p>Títulos Mundiales: <span>3</span></p></div>
-                <div><p>Victorias: <span>53</span></p></div>
-                <div><p>Poles: <span>31</span></p></div>
-                <div><p>Podios: <span>97</span></p></div>
-              </div>
-            </section>
 
-            
+          <?php
+                    $uri = "http://ergast.com/api/f1/2023/drivers.json";       
+                    $reqPrefs['http']['method'] = 'GET';
+                    $reqPrefs['http']['header'] = '';
+                    $stream_context = stream_context_create($reqPrefs);
+                    $resultado = file_get_contents($uri, false, $stream_context);
+                    
+                    //Pasar de json a objeto php y recorrer los resultados
+                    if ($resultado != false) {
+                        $respPHP = json_decode($resultado);
+
+                        foreach($respPHP->MRData->DriverTable->Drivers as $piloto) {
+                            echo '<section class="row" style=" border-top: 2px solid rgb(106, 0, 255);
+                            border-right: 2px solid rgb(106, 0, 255);">';
+                            echo '<img src="images/pilotos/'. $piloto->driverId .'.png" style="margin-left: 0%;" width="100" alt=""><br>';
+                            echo '<h2> ' . $piloto->givenName . ' ' . $piloto->familyName .'</h2>';         
+                            echo '<br>Numero: '. $piloto-> permanentNumber;
+                            echo '<br>Nacionalidad: '. $piloto-> nationality;
+                            echo '<br>Fecha de Nacimiento: '. $piloto-> dateOfBirth;
+                            echo '</section>';
+                        }
+                    }          
+?>
+
           </div>
 
     </main>
