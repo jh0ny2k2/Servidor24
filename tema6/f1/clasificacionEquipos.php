@@ -46,7 +46,7 @@
 <?php
                     $uri = "https://ergast.com/api/f1/2023/20/constructorStandings.json";       
                     $reqPrefs['http']['method'] = 'GET';
-                    $reqPrefs['http']['header'] = ' ';
+                    $reqPrefs['http']['heeader'] = ' ';
                     $stream_context = stream_context_create($reqPrefs);
                     $resultado = file_get_contents($uri, false, $stream_context);
                     
