@@ -1,8 +1,9 @@
 <?php
 
-    namespace Examen\modelos;
+    namespace Padalea\modelos;
 
     class Partidas {
+        private $id;
         private $fecha;
         private $hora;
         private $ciudad;
@@ -12,7 +13,8 @@
 
         private $jugadores = array();
 
-        public function __construct($fecha="", $hora="", $ciudad="", $lugar="", $cubierto="", $estado="") {
+        public function __construct($id ="", $fecha="", $hora="", $ciudad="", $lugar="", $cubierto="", $estado="") {
+            $this -> id = $id;
             $this -> fecha = $fecha;
             $this -> hora = $hora;
             $this -> ciudad = $ciudad;
@@ -157,6 +159,26 @@
             return $this->jugadores;
         }
 
+
+        /**
+         * Get the value of id
+         */ 
+        public function getId()
+        {
+                return $this->id;
+        }
+
+        /**
+         * Set the value of id
+         *
+         * @return  self
+         */ 
+        public function setId($id)
+        {
+                $this->id = $id;
+
+                return $this;
+        }
     }
 
 

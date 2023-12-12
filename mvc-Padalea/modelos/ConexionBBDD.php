@@ -1,7 +1,7 @@
 <?php
 
     //CREAMOS EL NAMESPACE
-    namespace Examen\modelos;
+    namespace Padalea\modelos;
 
     //USAMOS LO QUE NECESITAMOS 
     use \PDO;
