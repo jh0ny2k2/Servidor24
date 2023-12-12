@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en" data-bs-theme="auto">
   <head><script src="/docs/5.3/assets/js/color-modes.js"></script>
@@ -141,6 +140,7 @@
     <ul class="nav nav-pills">
       <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Inicio</a></li>
       <li class="nav-item"><a href="#" class="nav-link">Partidas</a></li>
+      <li class="nav-item"><a href="index.php?accion=cerrarSesion" class="nav-link">Cerrar Sesion</a></li>
       
     </ul>
   </header>

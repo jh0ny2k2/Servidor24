@@ -1,6 +1,6 @@
 <?php
 
-    namespace Examen\modelos;
+    namespace Padalea\modelos;
 
     class Jugador {
         private $id;

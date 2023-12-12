@@ -1,6 +1,6 @@
 <?php
 
-    namespace Examen\vistas;
+    namespace Padalea\vistas;
 
     class VistaResultados {
 
@@ -33,10 +33,9 @@
                     echo '              <td>' . $regalo->getLugar() . '</td>';
                     echo '              <td>' . $regalo->getCubierto() . '</td>';
                     echo '              <td>' . $regalo->getEstado() . '</td>';
-                    echo '              <td>
-                    <a href="index.php?accion=visualizarRegalo&id='. $regalo -> getId() .'"><button class="btn btn-primary"><i class="zmdi zmdi-search"></i></button></a>
-                    <a href="index.php?accion=modificarRegalo&id='. $regalo -> getId() .'"><button class="btn btn-primary"><i class="zmdi zmdi-edit"></button></a>
-                    <a href="index.php?accion=eliminarRegalo&id='. $regalo -> getId() .'"><button class="btn btn-primary"><i class="zmdi zmdi-delete"></button></a></td>';
+                    if ($regalo -> getEstado() !== 'finalizado' && $regalo -> getEstado() !== 'iniciado') {
+                    echo '              <td><a href="index.php?accion=entrarPartida&id='. $regalo -> getId() .'"><button class="btn btn-primary">Entrar a la partida</button></a>';
+                    } 
                     echo '          </tr>';
                 }
             }
